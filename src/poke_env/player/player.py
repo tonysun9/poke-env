@@ -14,7 +14,7 @@ import orjson
 from poke_env.concurrency import create_in_poke_loop, handle_threaded_coroutines
 from poke_env.data import GenData, to_id_str
 from poke_env.environment.abstract_battle import AbstractBattle
-from poke_env.environment.battle import Battle
+from poke_env.environment.battle import Battle, BattleWithCalcs
 from poke_env.environment.double_battle import DoubleBattle
 from poke_env.environment.move import Move
 from poke_env.environment.pokemon import Pokemon
@@ -177,8 +177,15 @@ class Player(ABC):
             self._team = team
         else:
             self._team = ConstantTeambuilder(team)
+            
+    @staticmethod
+    def create_battle_instance(with_calcs, *args, **kwargs):
+        if with_calcs:
+            return BattleWithCalcs(*args, **kwargs)
+        else:
+            return Battle(*args, **kwargs)
 
-    async def _create_battle(self, split_message: List[str]) -> AbstractBattle:
+    async def _create_battle(self, split_message: List[str], with_calcs: bool = True) -> AbstractBattle:
         """Returns battle object corresponding to received message.
 
         :param split_message: The battle initialisation message.
@@ -204,7 +211,8 @@ class Player(ABC):
                         gen=gen,
                     )
                 else:
-                    battle = Battle(
+                    battle = self.create_battle_instance(
+                        with_calcs,
                         battle_tag=battle_tag,
                         username=self.username,
                         logger=self.logger,

@@ -6,6 +6,8 @@ from poke_env.environment.move import Move
 from poke_env.environment.pokemon import Pokemon
 from poke_env.environment.pokemon_type import PokemonType
 
+from poke_env.calc.calc import get_active_calc
+
 
 class Battle(AbstractBattle):
     def __init__(
@@ -301,3 +303,19 @@ class Battle(AbstractBattle):
     @trapped.setter
     def trapped(self, value: bool):
         self._trapped = value
+
+class BattleWithCalcs(Battle):
+    def __init__(self, battle_tag, username, logger, gen, save_replays=False, replay_folder="replays"):
+        super().__init__(battle_tag, username, logger, gen, save_replays, replay_folder)
+        self.battle_info = None
+
+    def add_battle_info(self):
+        self.battle_info = get_active_calc(self._data.gen, self)
+        
+    def parse_message(self, split_message: List[str]):
+        # Add battle info
+        if not self.battle_info and self.active_pokemon and self.opponent_active_pokemon:
+            self.add_battle_info()
+            
+        super().parse_message(split_message)
+        
