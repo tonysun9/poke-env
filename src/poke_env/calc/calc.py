@@ -9,14 +9,13 @@ class DamageCalcResult(BaseModel):
     # recoveryInfo: dict
     # kochanceInfo: dict
 
-
-def get_active_calc(gen, battle):
-    dmg_moves = {k: v for k, v in battle.active_pokemon.moves.items() if v.base_power > 0}
+def get_1v1_calc(gen, p1_pkmn, p2_pkmn):
+    dmg_moves = {k: v for k, v in p1_pkmn.moves.items() if v.base_power > 0}
     
     data = {
         "gen": gen,
-        "attackingPokemon": battle.active_pokemon.species,
-        "defendingPokemon": battle.opponent_active_pokemon.species,
+        "attackingPokemon": p1_pkmn.species,
+        "defendingPokemon": p2_pkmn.species,
         "moveNames": list(dmg_moves.keys()),
     }
 

@@ -6,7 +6,7 @@ from poke_env.environment.move import Move
 from poke_env.environment.pokemon import Pokemon
 from poke_env.environment.pokemon_type import PokemonType
 
-from poke_env.calc.calc import get_active_calc
+from poke_env.calc.calc import get_1v1_calc
 
 
 class Battle(AbstractBattle):
@@ -307,15 +307,22 @@ class Battle(AbstractBattle):
 class BattleWithCalcs(Battle):
     def __init__(self, battle_tag, username, logger, gen, save_replays=False, replay_folder="replays"):
         super().__init__(battle_tag, username, logger, gen, save_replays, replay_folder)
-        self.battle_info = None
+        self.battle_calcs = {}
 
-    def add_battle_info(self):
-        self.battle_info = get_active_calc(self._data.gen, self)
+    def add_initial_calcs(self):
+        for p1_pkmn in self.team.values():
+            for p2_pkmn in self.opponent_team.values():
+                self.battle_calcs[(p1_pkmn.species, p2_pkmn.species)] = get_1v1_calc(self._data.gen, p1_pkmn, p2_pkmn)
+                
+    def add_new_calc(self, p1_pkmn: Pokemon, p2_pkmn: Pokemon):
+        self.battle_calcs[(p1_pkmn.species, p2_pkmn.species)] = get_1v1_calc(self._data.gen, p1_pkmn, p2_pkmn)
         
     def parse_message(self, split_message: List[str]):
-        # Add battle info
-        if not self.battle_info and self.active_pokemon and self.opponent_active_pokemon:
-            self.add_battle_info()
+        if not self.battle_calcs and self.active_pokemon and self.opponent_active_pokemon:
+            self.add_initial_calcs()
+            
+        if self.active_pokemon and self.opponent_active_pokemon and (self.active_pokemon.species, self.opponent_active_pokemon.species) not in self.battle_calcs:
+            self.add_new_calc(self.active_pokemon, self.opponent_active_pokemon)
             
         super().parse_message(split_message)
         
