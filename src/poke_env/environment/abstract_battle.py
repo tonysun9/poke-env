@@ -338,13 +338,9 @@ class AbstractBattle(ABC):
 
     def _finish_battle(self):
         if self._save_replays:
-            if self._save_replays is True:
-                folder = self._replay_folder
-            else:
-                folder = str(self._save_replays)
+            folder = self._replay_folder
 
-            if not os.path.exists(folder):
-                os.mkdir(folder)
+            os.makedirs(folder, exist_ok=True)
 
             with open(
                 os.path.join(
