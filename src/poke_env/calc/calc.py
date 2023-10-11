@@ -19,7 +19,7 @@ def get_1v1_calc(gen, p1_pkmn, p2_pkmn):
         "moveNames": list(dmg_moves.keys()),
     }
 
-    response = requests.post("http://localhost:3000/calculate", json=data)
+    response = requests.post("http://localhost:3000/calculate", json=data, timeout=3)
     json = response.json()
     try:
         for obj in json:

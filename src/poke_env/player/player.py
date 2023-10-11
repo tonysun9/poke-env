@@ -64,6 +64,7 @@ class Player(ABC):
         ping_interval: Optional[float] = 20.0,
         ping_timeout: Optional[float] = 20.0,
         team: Optional[Union[str, Teambuilder]] = None,
+        with_calcs: bool = False,
     ):
         """
         :param account_configuration: Player configuration. If empty, defaults to an
@@ -143,6 +144,8 @@ class Player(ABC):
         )
         self._battle_end_condition: Condition = create_in_poke_loop(Condition)
         self._challenge_queue: Queue[Any] = create_in_poke_loop(Queue)
+        
+        self._with_calcs = with_calcs
 
         if isinstance(team, Teambuilder):
             self._team = team
@@ -178,14 +181,13 @@ class Player(ABC):
         else:
             self._team = ConstantTeambuilder(team)
             
-    @staticmethod
-    def create_battle_instance(with_calcs, *args, **kwargs):
-        if with_calcs:
+    def create_battle_instance(self, *args, **kwargs):
+        if self._with_calcs:
             return BattleWithCalcs(*args, **kwargs)
         else:
             return Battle(*args, **kwargs)
 
-    async def _create_battle(self, split_message: List[str], with_calcs: bool = True) -> AbstractBattle:
+    async def _create_battle(self, split_message: List[str]) -> AbstractBattle:
         """Returns battle object corresponding to received message.
 
         :param split_message: The battle initialisation message.
@@ -212,7 +214,6 @@ class Player(ABC):
                     )
                 else:
                     battle = self.create_battle_instance(
-                        with_calcs,
                         battle_tag=battle_tag,
                         username=self.username,
                         logger=self.logger,
@@ -278,6 +279,7 @@ class Player(ABC):
                         await self._handle_battle_request(battle)
                         battle.move_on_next_request = False
             elif split_message[1] == "win" or split_message[1] == "tie":
+                self.logger.critical("Battle finished: %s", "|".join(split_message))
                 if split_message[1] == "win":
                     battle.won_by(split_message[2])
                 else:
