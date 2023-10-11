@@ -477,7 +477,7 @@ class AbstractBattle(ABC):
                     )
             else:
                 pokemon, move, presumed_target = split_message[2:5]
-                if split_message[-1].beginswith("[from]"):
+                if split_message[-1].startswith("[from]"):
                     pass
                 elif self.logger is not None:
                     self.logger.warning(
