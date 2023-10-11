@@ -477,7 +477,9 @@ class AbstractBattle(ABC):
                     )
             else:
                 pokemon, move, presumed_target = split_message[2:5]
-                if self.logger is not None:
+                if split_message[-1].beginswith("[from]"):
+                    pass
+                elif self.logger is not None:
                     self.logger.warning(
                         "Unmanaged move message format received - cleaned up message %s in "
                         "battle %s turn %d",
