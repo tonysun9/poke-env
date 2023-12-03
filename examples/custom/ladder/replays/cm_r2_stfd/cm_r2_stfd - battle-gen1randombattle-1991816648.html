@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-1991816648</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-1991816648<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_r2_stfd</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">sikerim69</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-1991816648|init|battle
+|title|sikerim69 vs. cm_r2_stfd
+|j|☆sikerim69
+|j|☆cm_r2_stfd
+|gametype|singles
+|player|p1|sikerim69|1|1089
+|player|p2|cm_r2_stfd|riley|1016
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Arcanine|Arcanine, L76|100/100
+|switch|p2a: Muk|Muk, L78|324/324
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_r2_stfd)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|move|p1a: Arcanine|Fire Blast|p2a: Muk
+|-crit|p2a: Muk
+|-damage|p2a: Muk|105/324
+|move|p2a: Muk|Explosion|p1a: Arcanine
+|-damage|p1a: Arcanine|14/100
+|faint|p2a: Muk
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Drowzee|Drowzee, L82|266/266
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Charizard|Charizard, L74|268/268
+|move|p1a: Arcanine|Hyper Beam|p2a: Charizard
+|-damage|p2a: Charizard|151/268
+|-mustrecharge|p1a: Arcanine
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Charizard|Fire Blast|p1a: Arcanine
+|-resisted|p1a: Arcanine
+|-damage|p1a: Arcanine|0 fnt
+|faint|p1a: Arcanine
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Seel|Seel, L88|100/100
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Porygon|Porygon, L78|261/261
+|move|p1a: Seel|Surf|p2a: Porygon
+|-damage|p2a: Porygon|148/261
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Seel|Blizzard|p2a: Porygon
+|-damage|p2a: Porygon|57/261
+|-status|p2a: Porygon|frz
+|cant|p2a: Porygon|frz
+|upkeep
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Seel|Blizzard|p2a: Porygon
+|-crit|p2a: Porygon
+|-damage|p2a: Porygon|0 fnt
+|faint|p2a: Porygon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Charizard|Charizard, L74|151/268
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Charizard|Fire Blast|p1a: Seel
+|-resisted|p1a: Seel
+|-damage|p1a: Seel|84/100
+|move|p1a: Seel|Surf|p2a: Charizard
+|-supereffective|p2a: Charizard
+|-damage|p2a: Charizard|0 fnt
+|faint|p2a: Charizard
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Electrode|Electrode, L77|251/251
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Ditto|Ditto|100/100
+|move|p2a: Electrode|Explosion|p1a: Ditto
+|-damage|p1a: Ditto|45/100
+|faint|p2a: Electrode
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Seel|Seel, L88|294/294
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Ditto|Transform|p2a: Seel
+|-transform|p1a: Ditto|p2a: Seel
+|move|p2a: Seel|Surf|p1a: Ditto
+|-resisted|p1a: Ditto
+|-damage|p1a: Ditto|28/100
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Seel|Rest|p2a: Seel
+|-fail|p2a: Seel
+|move|p1a: Ditto|Rest|p1a: Ditto
+|-status|p1a: Ditto|slp|[from] move: Rest
+|-heal|p1a: Ditto|100/100 slp|[silent]
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p1a: Ditto|slp
+|move|p2a: Seel|Body Slam|p1a: Ditto
+|-damage|p1a: Ditto|83/100 slp
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Drowzee|Drowzee, L82|266/266
+|-curestatus|p1a: Ditto|slp|[msg]
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Seel|Seel, L88|294/294
+|move|p1a: Ditto|Blizzard|p2a: Seel
+|-resisted|p2a: Seel
+|-damage|p2a: Seel|248/294
+|upkeep
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Seel|Blizzard|p1a: Ditto
+|-resisted|p1a: Ditto
+|-damage|p1a: Ditto|70/100
+|move|p1a: Ditto|Blizzard|p2a: Seel
+|-resisted|p2a: Seel
+|-damage|p2a: Seel|201/294
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Drowzee|Drowzee, L82|266/266
+|move|p1a: Ditto|Blizzard|p2a: Drowzee
+|-damage|p2a: Drowzee|181/266
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Ditto|Blizzard|p2a: Drowzee
+|-damage|p2a: Drowzee|92/266
+|-status|p2a: Drowzee|frz
+|cant|p2a: Drowzee|frz
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Ditto|Blizzard|p2a: Drowzee
+|-crit|p2a: Drowzee
+|-damage|p2a: Drowzee|0 fnt
+|faint|p2a: Drowzee
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Seel|Seel, L88|201/294
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Koffing|Koffing, L90|100/100
+|move|p2a: Seel|Rest|p2a: Seel
+|-status|p2a: Seel|slp|[from] move: Rest
+|-heal|p2a: Seel|294/294 slp|[silent]
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Seel|slp
+|move|p1a: Koffing|Thunderbolt|p2a: Seel
+|-supereffective|p2a: Seel
+|-damage|p2a: Seel|166/294 slp
+|upkeep
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|-curestatus|p2a: Seel|slp|[msg]
+|move|p1a: Koffing|Thunderbolt|p2a: Seel
+|-supereffective|p2a: Seel
+|-damage|p2a: Seel|34/294
+|upkeep
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Seel|Rest|p2a: Seel
+|-status|p2a: Seel|slp|[from] move: Rest
+|-heal|p2a: Seel|294/294 slp|[silent]
+|move|p1a: Koffing|Explosion|p2a: Seel
+|-damage|p2a: Seel|19/294 slp
+|faint|p1a: Koffing
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Hitmonlee|Hitmonlee, L81|100/100
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Hitmonlee|Body Slam|p2a: Seel
+|-damage|p2a: Seel|0 fnt
+|faint|p2a: Seel
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

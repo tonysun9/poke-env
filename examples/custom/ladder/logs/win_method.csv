@@ -1,0 +1,7 @@
+win_method,code
+opp_ko,00
+forfeit,01
+timeout,02
+ko,10
+opp_forfeit,11
+opp_timeout,12

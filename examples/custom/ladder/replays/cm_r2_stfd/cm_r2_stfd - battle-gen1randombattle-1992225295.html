@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-1992225295</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-1992225295<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_r2_stfd</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">fjgh7</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-1992225295|init|battle
+|title|cm_r2_stfd vs. fjgh7
+|j|☆cm_r2_stfd
+|j|☆fjgh7
+|gametype|singles
+|player|p1|cm_r2_stfd|170|1000
+|player|p2|fjgh7|benga|1000
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Gloom|Gloom, L81|263/263
+|switch|p2a: Wartortle|Wartortle, L83|100/100
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_r2_stfd)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|switch|p1a: Pidgeot|Pidgeot, L78|290/290
+|move|p2a: Wartortle|Blizzard|p1a: Pidgeot
+|-supereffective|p1a: Pidgeot
+|-damage|p1a: Pidgeot|141/290
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Kadabra|Kadabra, L73|209/209
+|move|p2a: Wartortle|Surf|p1a: Kadabra
+|-damage|p1a: Kadabra|137/209
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|fjgh7 has 120 seconds left.
+|switch|p2a: Dragonite|Dragonite, L73|100/100
+|move|p1a: Kadabra|Seismic Toss|p2a: Dragonite
+|-damage|p2a: Dragonite|75/100
+|upkeep
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|fjgh7 has 120 seconds left.
+|switch|p1a: Weezing|Weezing, L77|258/258
+|move|p2a: Dragonite|Thunder Wave|p1a: Weezing
+|-status|p1a: Weezing|par
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Dragonite|Hyper Beam|p1a: Weezing
+|-damage|p1a: Weezing|176/258 par
+|-mustrecharge|p2a: Dragonite
+|move|p1a: Weezing|Explosion|p2a: Dragonite
+|-damage|p2a: Dragonite|0 fnt
+|faint|p2a: Dragonite
+|faint|p1a: Weezing
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Jynx|Jynx, L67|100/100
+|switch|p1a: Gloom|Gloom, L81|263/263
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Pidgeot|Pidgeot, L78|141/290
+|move|p2a: Jynx|Blizzard|p1a: Pidgeot
+|-supereffective|p1a: Pidgeot
+|-damage|p1a: Pidgeot|0 fnt
+|faint|p1a: Pidgeot
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Shellder|Shellder, L91|240/240
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|fjgh7 has 120 seconds left.
+|move|p2a: Jynx|Seismic Toss|p1a: Shellder
+|-damage|p1a: Shellder|173/240
+|move|p1a: Shellder|Explosion|p2a: Jynx
+|-damage|p2a: Jynx|0 fnt
+|faint|p2a: Jynx
+|faint|p1a: Shellder
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|fjgh7 has 120 seconds left.
+|switch|p2a: Wartortle|Wartortle, L83|100/100
+|switch|p1a: Charmeleon|Charmeleon, L83|266/266
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|fjgh7 has 120 seconds left.
+|move|p1a: Charmeleon|Seismic Toss|p2a: Wartortle
+|-damage|p2a: Wartortle|70/100
+|move|p2a: Wartortle|Surf|p1a: Charmeleon
+|-supereffective|p1a: Charmeleon
+|-damage|p1a: Charmeleon|88/266
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Charmeleon|Seismic Toss|p2a: Wartortle
+|-damage|p2a: Wartortle|39/100
+|move|p2a: Wartortle|Body Slam|p1a: Charmeleon
+|-damage|p1a: Charmeleon|25/266
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Kadabra|Kadabra, L73|137/209
+|switch|p2a: Magmar|Magmar, L78|100/100
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Charmeleon|Charmeleon, L83|25/266
+|move|p2a: Magmar|Confuse Ray|p1a: Charmeleon
+|-start|p1a: Charmeleon|confusion
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Gloom|Gloom, L81|263/263
+|move|p2a: Magmar|Body Slam|p1a: Gloom
+|-damage|p1a: Gloom|201/263
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Magmar|Fire Blast|p1a: Gloom
+|-supereffective|p1a: Gloom
+|-damage|p1a: Gloom|0 fnt
+|faint|p1a: Gloom
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Charmeleon|Charmeleon, L83|25/266
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|fjgh7 has 120 seconds left.
+|move|p2a: Magmar|Confuse Ray|p1a: Charmeleon
+|-start|p1a: Charmeleon|confusion
+|-activate|p1a: Charmeleon|confusion
+|move|p1a: Charmeleon|Body Slam|p2a: Magmar
+|-crit|p2a: Magmar
+|-damage|p2a: Magmar|57/100
+|-status|p2a: Magmar|par
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|fjgh7 has 120 seconds left.
+|switch|p2a: Kangaskhan|Kangaskhan, L73|100/100
+|-activate|p1a: Charmeleon|confusion
+|move|p1a: Charmeleon|Seismic Toss|p2a: Kangaskhan
+|-damage|p2a: Kangaskhan|73/100
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|-activate|p1a: Charmeleon|confusion
+|move|p1a: Charmeleon|Seismic Toss|p2a: Kangaskhan
+|-damage|p2a: Kangaskhan|46/100
+|move|p2a: Kangaskhan|Body Slam|p1a: Charmeleon
+|-damage|p1a: Charmeleon|0 fnt
+|faint|p1a: Charmeleon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Kadabra|Kadabra, L73|137/209
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Psychic|p2a: Kangaskhan
+|-crit|p2a: Kangaskhan
+|-damage|p2a: Kangaskhan|0 fnt
+|faint|p2a: Kangaskhan
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|fjgh7 has 120 seconds left.
+|switch|p2a: Rhydon|Rhydon, L68|100/100
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Seismic Toss|p2a: Rhydon
+|-damage|p2a: Rhydon|75/100
+|move|p2a: Rhydon|Body Slam|p1a: Kadabra
+|-damage|p1a: Kadabra|44/209
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Magmar|Magmar, L78|57/100 par
+|move|p1a: Kadabra|Thunder Wave|p2a: Magmar
+|-fail|p2a: Magmar|par
+|upkeep
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Recover|p1a: Kadabra
+|-heal|p1a: Kadabra|148/209
+|move|p2a: Magmar|Fire Blast|p1a: Kadabra
+|-damage|p1a: Kadabra|56/209
+|upkeep
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Thunder Wave|p2a: Magmar
+|-fail|p2a: Magmar|par
+|move|p2a: Magmar|Hyper Beam|p1a: Kadabra
+|-damage|p1a: Kadabra|0 fnt
+|faint|p1a: Kadabra
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-1993725158</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-1993725158<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_md2_battler</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">Zaru__2rs</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-1993725158|init|battle
+|title|Zaru__2rs vs. cm_md2_battler
+|j|☆Zaru__2rs
+|j|☆cm_md2_battler
+|gametype|singles
+|player|p1|Zaru__2rs|dawn|1032
+|player|p2|cm_md2_battler|riley|1112
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Kabutops|Kabutops, L77|100/100
+|switch|p2a: Nidorino|Nidorino, L85|277/277
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_md2_battler)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|move|p1a: Kabutops|Swords Dance|p1a: Kabutops
+|-boost|p1a: Kabutops|atk|2
+|move|p2a: Nidorino|Thunderbolt|p1a: Kabutops
+|-supereffective|p1a: Kabutops
+|-damage|p1a: Kabutops|53/100
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kabutops|Surf|p2a: Nidorino
+|-damage|p2a: Nidorino|181/277
+|move|p2a: Nidorino|Thunderbolt|p1a: Kabutops
+|-supereffective|p1a: Kabutops
+|-damage|p1a: Kabutops|2/100
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kabutops|Hyper Beam|p2a: Nidorino
+|-damage|p2a: Nidorino|0 fnt
+|faint|p2a: Nidorino
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Dewgong|Dewgong, L74|286/286
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kabutops|Body Slam|p2a: Dewgong
+|-crit|p2a: Dewgong
+|-damage|p2a: Dewgong|146/286
+|move|p2a: Dewgong|Surf|p1a: Kabutops
+|-damage|p1a: Kabutops|0 fnt
+|faint|p1a: Kabutops
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Alakazam|Alakazam, L66|100/100
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Alakazam|Psychic|p2a: Dewgong
+|-damage|p2a: Dewgong|58/286
+|move|p2a: Dewgong|Blizzard|p1a: Alakazam|[miss]
+|-miss|p2a: Dewgong
+|upkeep
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Alakazam|Psychic|p2a: Dewgong
+|-crit|p2a: Dewgong
+|-damage|p2a: Dewgong|0 fnt
+|faint|p2a: Dewgong
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Exeggutor|Exeggutor, L65|258/258
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Alakazam|Thunder Wave|p2a: Exeggutor
+|-status|p2a: Exeggutor|par
+|move|p2a: Exeggutor|Explosion|p1a: Alakazam
+|-damage|p1a: Alakazam|0 fnt
+|faint|p1a: Alakazam
+|faint|p2a: Exeggutor
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Sandshrew|Sandshrew, L88|100/100
+|switch|p2a: Kadabra|Kadabra, L73|209/209
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kadabra|Psychic|p1a: Sandshrew
+|-crit|p1a: Sandshrew
+|-damage|p1a: Sandshrew|0 fnt
+|faint|p1a: Sandshrew
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Jynx|Jynx, L67|100/100
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kadabra|Psychic|p1a: Jynx
+|-resisted|p1a: Jynx
+|-damage|p1a: Jynx|78/100
+|move|p1a: Jynx|Lovely Kiss|p2a: Kadabra|[miss]
+|-miss|p1a: Jynx
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kadabra|Psychic|p1a: Jynx
+|-resisted|p1a: Jynx
+|-damage|p1a: Jynx|57/100
+|move|p1a: Jynx|Lovely Kiss|p2a: Kadabra|[miss]
+|-miss|p1a: Jynx
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kadabra|Psychic|p1a: Jynx
+|-resisted|p1a: Jynx
+|-damage|p1a: Jynx|37/100
+|move|p1a: Jynx|Lovely Kiss|p2a: Kadabra
+|-status|p2a: Kadabra|slp|[from] move: Lovely Kiss
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Kadabra|slp
+|move|p1a: Jynx|Blizzard|p2a: Kadabra
+|-damage|p2a: Kadabra|131/209 slp
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Kadabra|slp
+|move|p1a: Jynx|Blizzard|p2a: Kadabra
+|-damage|p2a: Kadabra|57/209 slp
+|upkeep
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Kadabra|slp
+|move|p1a: Jynx|Blizzard|p2a: Kadabra
+|-damage|p2a: Kadabra|0 fnt
+|faint|p2a: Kadabra
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Omanyte|Omanyte, L88|241/241
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Jynx|Lovely Kiss|p2a: Omanyte
+|-status|p2a: Omanyte|slp|[from] move: Lovely Kiss
+|cant|p2a: Omanyte|slp
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Jynx|Psychic|p2a: Omanyte
+|-crit|p2a: Omanyte
+|-damage|p2a: Omanyte|132/241 slp
+|-unboost|p2a: Omanyte|spa|1
+|-unboost|p2a: Omanyte|spd|1
+|cant|p2a: Omanyte|slp
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Jynx|Psychic|p2a: Omanyte
+|-damage|p2a: Omanyte|42/241 slp
+|-curestatus|p2a: Omanyte|slp|[msg]
+|upkeep
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Jynx|Psychic|p2a: Omanyte
+|-damage|p2a: Omanyte|0 fnt
+|faint|p2a: Omanyte
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Dratini|Dratini, L92|263/263
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Jynx|Blizzard|p2a: Dratini
+|-supereffective|p2a: Dratini
+|-damage|p2a: Dratini|48/263
+|move|p2a: Dratini|Body Slam|p1a: Jynx
+|-damage|p1a: Jynx|0 fnt
+|faint|p1a: Jynx
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Butterfree|Butterfree, L79|100/100
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Butterfree|Hyper Beam|p2a: Dratini
+|-crit|p2a: Dratini
+|-damage|p2a: Dratini|0 fnt
+|faint|p2a: Dratini
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

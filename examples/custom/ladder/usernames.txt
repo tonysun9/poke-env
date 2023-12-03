@@ -1,0 +1,3 @@
+random: cm_r2_stfd
+maxbase: cm_m1_stfd
+maxdmg: cm_md1_battler

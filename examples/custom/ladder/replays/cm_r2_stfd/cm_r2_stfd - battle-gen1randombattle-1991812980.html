@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-1991812980</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-1991812980<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_r2_stfd</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">tiktokslickyj1111</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-1991812980|init|battle
+|title|cm_r2_stfd vs. tiktokslickyj1111
+|j|☆cm_r2_stfd
+|j|☆tiktokslickyj1111
+|gametype|singles
+|player|p1|cm_r2_stfd|riley|1064
+|player|p2|tiktokslickyj1111|266|1075
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Exeggutor|Exeggutor, L65|258/258
+|switch|p2a: Nidoran-F|Nidoran-F, L94|100/100
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_r2_stfd)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|switch|p1a: Flareon|Flareon, L77|258/258
+|move|p2a: Nidoran-F|Blizzard|p1a: Flareon
+|-damage|p1a: Flareon|199/258
+|-status|p1a: Flareon|frz
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Psyduck|Psyduck, L89|100/100
+|cant|p1a: Flareon|frz
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Rhydon|Rhydon, L68|283/283
+|move|p2a: Psyduck|Amnesia|p2a: Psyduck
+|-boost|p2a: Psyduck|spa|2
+|-boost|p2a: Psyduck|spd|2
+|upkeep
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Exeggutor|Exeggutor, L65|258/258
+|move|p2a: Psyduck|Surf|p1a: Exeggutor
+|-crit|p1a: Exeggutor
+|-resisted|p1a: Exeggutor
+|-damage|p1a: Exeggutor|178/258
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Psyduck|Amnesia|p2a: Psyduck
+|-boost|p2a: Psyduck|spa|2
+|-boost|p2a: Psyduck|spd|2
+|move|p1a: Exeggutor|Explosion|p2a: Psyduck
+|-damage|p2a: Psyduck|33/100
+|faint|p1a: Exeggutor
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Ditto|Ditto|299/299
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Ditto|Transform|p2a: Psyduck
+|-transform|p1a: Ditto|p2a: Psyduck
+|move|p2a: Psyduck|Surf|p1a: Ditto
+|-resisted|p1a: Ditto
+|-damage|p1a: Ditto|253/299
+|upkeep
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Machamp|Machamp, L77|100/100
+|switch|p1a: Kingler|Kingler, L77|243/243
+|upkeep
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Rhydon|Rhydon, L68|283/283
+|move|p2a: Machamp|Rock Slide|p1a: Rhydon
+|-resisted|p1a: Rhydon
+|-damage|p1a: Rhydon|255/283
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Machamp|Earthquake|p1a: Rhydon
+|-supereffective|p1a: Rhydon
+|-damage|p1a: Rhydon|106/283
+|move|p1a: Rhydon|Substitute|p1a: Rhydon
+|-start|p1a: Rhydon|Substitute
+|-damage|p1a: Rhydon|36/283
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Machamp|Earthquake|p1a: Rhydon
+|-supereffective|p1a: Rhydon
+|-end|p1a: Rhydon|Substitute
+|move|p1a: Rhydon|Substitute|p1a: Rhydon
+|-fail|p1a: Rhydon|move: Substitute|[weak]
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Machamp|Submission|p1a: Rhydon|[miss]
+|-miss|p2a: Machamp
+|move|p1a: Rhydon|Earthquake|p2a: Machamp
+|-damage|p2a: Machamp|65/100
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Flareon|Flareon, L77|199/258 frz
+|move|p2a: Machamp|Submission|p1a: Flareon|[miss]
+|-miss|p2a: Machamp
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Abra|Abra, L81|206/206
+|switch|p2a: Psyduck|Psyduck, L89|33/100
+|upkeep
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Ditto|Ditto|253/299
+|switch|p2a: Nidoran-F|Nidoran-F, L94|100/100
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Flareon|Flareon, L77|199/258 frz
+|move|p2a: Nidoran-F|Thunderbolt|p1a: Flareon
+|-damage|p1a: Flareon|154/258 frz
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Kingler|Kingler, L77|243/243
+|move|p2a: Nidoran-F|Blizzard|p1a: Kingler
+|-resisted|p1a: Kingler
+|-damage|p1a: Kingler|197/243
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Abra|Abra, L81|206/206
+|move|p2a: Nidoran-F|Body Slam|p1a: Abra
+|-damage|p1a: Abra|103/206
+|-status|p1a: Abra|par
+|upkeep
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|c|☆tiktokslickyj1111|BOTTING!!!!!!!!!!!!!!!!!!!!!!
+|switch|p1a: Kingler|Kingler, L77|197/243
+|move|p2a: Nidoran-F|Blizzard|p1a: Kingler
+|-resisted|p1a: Kingler
+|-damage|p1a: Kingler|148/243
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kingler|Hyper Beam|p2a: Nidoran-F
+|-damage|p2a: Nidoran-F|57/100
+|-mustrecharge|p1a: Kingler
+|move|p2a: Nidoran-F|Thunderbolt|p1a: Kingler
+|-supereffective|p1a: Kingler
+|-damage|p1a: Kingler|0 fnt
+|faint|p1a: Kingler
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Abra|Abra, L81|103/206 par
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Nidoran-F|Body Slam|p1a: Abra
+|-damage|p1a: Abra|2/206 par
+|move|p1a: Abra|Substitute|p1a: Abra
+|-fail|p1a: Abra|move: Substitute|[weak]
+|upkeep
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Nidoran-F|Body Slam|p1a: Abra
+|-damage|p1a: Abra|0 fnt
+|faint|p1a: Abra
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Ditto|Ditto|253/299
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Ditto|Transform|p2a: Nidoran-F
+|-transform|p1a: Ditto|p2a: Nidoran-F
+|move|p2a: Nidoran-F|Body Slam|p1a: Ditto
+|-damage|p1a: Ditto|193/299
+|-status|p1a: Ditto|par
+|upkeep
+|turn|23
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Flareon|Flareon, L77|154/258 frz
+|move|p2a: Nidoran-F|Blizzard|p1a: Flareon
+|-crit|p1a: Flareon
+|-damage|p1a: Flareon|45/258 frz
+|upkeep
+|turn|24
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Ditto|Ditto|193/299 par
+|switch|p2a: Psyduck|Psyduck, L89|33/100
+|upkeep
+|turn|25
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Rhydon|Rhydon, L68|36/283
+|move|p2a: Psyduck|Amnesia|p2a: Psyduck
+|-boost|p2a: Psyduck|spa|2
+|-boost|p2a: Psyduck|spd|2
+|upkeep
+|turn|26
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Psyduck|Amnesia|p2a: Psyduck
+|-boost|p2a: Psyduck|spa|2
+|-boost|p2a: Psyduck|spd|2
+|move|p1a: Rhydon|Body Slam|p2a: Psyduck
+|-damage|p2a: Psyduck|8/100
+|-status|p2a: Psyduck|par
+|upkeep
+|turn|27
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Rhydon|Earthquake|p2a: Psyduck
+|-damage|p2a: Psyduck|0 fnt
+|faint|p2a: Psyduck
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Nidoran-F|Nidoran-F, L94|57/100
+|turn|28
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Nidoran-F|Blizzard|p1a: Rhydon
+|-supereffective|p1a: Rhydon
+|-damage|p1a: Rhydon|0 fnt
+|faint|p1a: Rhydon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Ditto|Ditto|193/299 par
+|turn|29
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Flareon|Flareon, L77|45/258 frz
+|move|p2a: Nidoran-F|Thunderbolt|p1a: Flareon
+|-damage|p1a: Flareon|0 fnt
+|faint|p1a: Flareon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Ditto|Ditto|193/299 par
+|turn|30
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Nidoran-F|Thunderbolt|p1a: Ditto
+|-damage|p1a: Ditto|136/299 par
+|cant|p1a: Ditto|par
+|upkeep
+|turn|31
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Nidoran-F|Blizzard|p1a: Ditto
+|-damage|p1a: Ditto|61/299 par
+|move|p1a: Ditto|Transform|p2a: Nidoran-F
+|-transform|p1a: Ditto|p2a: Nidoran-F
+|upkeep
+|turn|32
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Ditto|Double-Edge|p2a: Nidoran-F
+|-damage|p2a: Nidoran-F|29/100
+|-damage|p1a: Ditto|41/299 par|[from] Recoil|[of] p2a: Nidoran-F
+|move|p2a: Nidoran-F|Body Slam|p1a: Ditto
+|-damage|p1a: Ditto|0 fnt
+|faint|p1a: Ditto
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

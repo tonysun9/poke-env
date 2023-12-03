@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-1992436047</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-1992436047<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_m1_stfd</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">hvucycucu</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-1992436047|init|battle
+|title|hvucycucu vs. cm_m1_stfd
+|j|☆hvucycucu
+|j|☆cm_m1_stfd
+|gametype|singles
+|player|p1|hvucycucu|1|1000
+|player|p2|cm_m1_stfd|riley|1040
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Tangela|Tangela, L74|100/100
+|switch|p2a: Blastoise|Blastoise, L75|273/273
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_m1_stfd)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|move|p2a: Blastoise|Blizzard|p1a: Tangela
+|-supereffective|p1a: Tangela
+|-damage|p1a: Tangela|50/100
+|move|p1a: Tangela|Sleep Powder|p2a: Blastoise
+|-status|p2a: Blastoise|slp|[from] move: Sleep Powder
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Blastoise|slp
+|move|p1a: Tangela|Swords Dance|p1a: Tangela
+|-boost|p1a: Tangela|atk|2
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Blastoise|slp
+|move|p1a: Tangela|Swords Dance|p1a: Tangela
+|-boost|p1a: Tangela|atk|2
+|upkeep
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|-curestatus|p2a: Blastoise|slp|[msg]
+|move|p1a: Tangela|Mega Drain|p2a: Blastoise
+|-supereffective|p2a: Blastoise
+|-damage|p2a: Blastoise|193/273
+|-heal|p1a: Tangela|66/100|[from] drain|[of] p2a: Blastoise
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Blastoise|Blizzard|p1a: Tangela
+|-supereffective|p1a: Tangela
+|-damage|p1a: Tangela|14/100
+|move|p1a: Tangela|Mega Drain|p2a: Blastoise
+|-supereffective|p2a: Blastoise
+|-damage|p2a: Blastoise|114/273
+|-heal|p1a: Tangela|29/100|[from] drain|[of] p2a: Blastoise
+|upkeep
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Blastoise|Blizzard|p1a: Tangela|[miss]
+|-miss|p2a: Blastoise
+|move|p1a: Tangela|Sleep Powder|p2a: Blastoise
+|-status|p2a: Blastoise|slp|[from] move: Sleep Powder
+|upkeep
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Blastoise|slp
+|move|p1a: Tangela|Mega Drain|p2a: Blastoise
+|-supereffective|p2a: Blastoise
+|-damage|p2a: Blastoise|32/273 slp
+|-heal|p1a: Tangela|46/100|[from] drain|[of] p2a: Blastoise
+|upkeep
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Blastoise|slp
+|move|p1a: Tangela|Swords Dance|p1a: Tangela
+|-boost|p1a: Tangela|atk|2
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Blastoise|slp
+|move|p1a: Tangela|Mega Drain|p2a: Blastoise
+|-supereffective|p2a: Blastoise
+|-damage|p2a: Blastoise|0 fnt
+|-heal|p1a: Tangela|52/100|[from] drain|[of] p2a: Blastoise
+|faint|p2a: Blastoise
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Drowzee|Drowzee, L82|266/266
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Tangela|Mega Drain|p2a: Drowzee
+|-damage|p2a: Drowzee|229/266
+|-heal|p1a: Tangela|60/100|[from] drain|[of] p2a: Drowzee
+|move|p2a: Drowzee|Psychic|p1a: Tangela
+|-damage|p1a: Tangela|21/100
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Tangela|Sleep Powder|p2a: Drowzee
+|-status|p2a: Drowzee|slp|[from] move: Sleep Powder
+|-curestatus|p2a: Drowzee|slp|[msg]
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Tangela|Sleep Powder|p2a: Drowzee|[miss]
+|-miss|p1a: Tangela
+|move|p2a: Drowzee|Psychic|p1a: Tangela
+|-damage|p1a: Tangela|0 fnt
+|faint|p1a: Tangela
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Venomoth|Venomoth, L73|100/100
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Stun Spore|p2a: Drowzee
+|-status|p2a: Drowzee|par
+|move|p2a: Drowzee|Psychic|p1a: Venomoth
+|-supereffective|p1a: Venomoth
+|-damage|p1a: Venomoth|17/100
+|-unboost|p1a: Venomoth|spa|1
+|-unboost|p1a: Venomoth|spd|1
+|upkeep
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Mega Drain|p2a: Drowzee
+|-damage|p2a: Drowzee|214/266 par
+|-heal|p1a: Venomoth|20/100|[from] drain|[of] p2a: Drowzee
+|cant|p2a: Drowzee|par
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Psychic|p2a: Drowzee
+|-crit|p2a: Drowzee
+|-resisted|p2a: Drowzee
+|-damage|p2a: Drowzee|171/266 par
+|-unboost|p2a: Drowzee|spa|1
+|-unboost|p2a: Drowzee|spd|1
+|move|p2a: Drowzee|Psychic|p1a: Venomoth
+|-supereffective|p1a: Venomoth
+|-damage|p1a: Venomoth|0 fnt
+|faint|p1a: Venomoth
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Haunter|Haunter, L70|100/100
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Haunter|Night Shade|p2a: Drowzee
+|-damage|p2a: Drowzee|101/266 par
+|move|p2a: Drowzee|Psychic|p1a: Haunter
+|-supereffective|p1a: Haunter
+|-damage|p1a: Haunter|48/100
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Haunter|Thunderbolt|p2a: Drowzee
+|-damage|p2a: Drowzee|22/266 par
+|move|p2a: Drowzee|Psychic|p1a: Haunter
+|-supereffective|p1a: Haunter
+|-damage|p1a: Haunter|0 fnt
+|faint|p1a: Haunter
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Snorlax|Snorlax, L70|100/100
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Snorlax|Thunderbolt|p2a: Drowzee
+|-damage|p2a: Drowzee|0 fnt
+|faint|p2a: Drowzee
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Hitmonlee|Hitmonlee, L81|247/247
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|Mega Kick|p1a: Snorlax
+|-crit|p1a: Snorlax
+|-damage|p1a: Snorlax|30/100
+|move|p1a: Snorlax|Amnesia|p1a: Snorlax
+|-boost|p1a: Snorlax|spa|2
+|-boost|p1a: Snorlax|spd|2
+|upkeep
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|Mega Kick|p1a: Snorlax
+|-damage|p1a: Snorlax|0 fnt
+|faint|p1a: Snorlax
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Tauros|Tauros, L68|100/100
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|Mega Kick|p1a: Tauros|[miss]
+|-miss|p2a: Hitmonlee
+|move|p1a: Tauros|Earthquake|p2a: Hitmonlee
+|-damage|p2a: Hitmonlee|181/247
+|upkeep
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|Mega Kick|p1a: Tauros|[miss]
+|-miss|p2a: Hitmonlee
+|move|p1a: Tauros|Blizzard|p2a: Hitmonlee|[miss]
+|-miss|p1a: Tauros
+|upkeep
+|turn|23
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|Mega Kick|p1a: Tauros
+|-damage|p1a: Tauros|61/100
+|move|p1a: Tauros|Blizzard|p2a: Hitmonlee|[miss]
+|-miss|p1a: Tauros
+|upkeep
+|turn|24
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|Mega Kick|p1a: Tauros
+|-crit|p1a: Tauros
+|-damage|p1a: Tauros|0 fnt
+|faint|p1a: Tauros
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Poliwag|Poliwag, L86|100/100
+|turn|25
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Hypnosis|p2a: Hitmonlee
+|-status|p2a: Hitmonlee|slp|[from] move: Hypnosis
+|cant|p2a: Hitmonlee|slp
+|upkeep
+|turn|26
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Amnesia|p1a: Poliwag
+|-boost|p1a: Poliwag|spa|2
+|-boost|p1a: Poliwag|spd|2
+|cant|p2a: Hitmonlee|slp
+|upkeep
+|turn|27
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Amnesia|p1a: Poliwag
+|-boost|p1a: Poliwag|spa|2
+|-boost|p1a: Poliwag|spd|2
+|-curestatus|p2a: Hitmonlee|slp|[msg]
+|upkeep
+|turn|28
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Blizzard|p2a: Hitmonlee
+|-damage|p2a: Hitmonlee|0 fnt
+|faint|p2a: Hitmonlee
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Dragonair|Dragonair, L81|265/265
+|turn|29
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Amnesia|p1a: Poliwag
+|-boost|p1a: Poliwag|spa|2
+|-boost|p1a: Poliwag|spd|2
+|move|p2a: Dragonair|Blizzard|p1a: Poliwag
+|-crit|p1a: Poliwag
+|-resisted|p1a: Poliwag
+|-damage|p1a: Poliwag|62/100
+|upkeep
+|turn|30
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Hypnosis|p2a: Dragonair|[miss]
+|-miss|p1a: Poliwag
+|move|p2a: Dragonair|Blizzard|p1a: Poliwag
+|-resisted|p1a: Poliwag
+|-damage|p1a: Poliwag|57/100
+|upkeep
+|turn|31
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Hypnosis|p2a: Dragonair
+|-status|p2a: Dragonair|slp|[from] move: Hypnosis
+|cant|p2a: Dragonair|slp
+|upkeep
+|turn|32
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Blizzard|p2a: Dragonair
+|-supereffective|p2a: Dragonair
+|-damage|p2a: Dragonair|0 fnt
+|faint|p2a: Dragonair
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Nidoqueen|Nidoqueen, L74|286/286
+|turn|33
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Blizzard|p2a: Nidoqueen|[miss]
+|-miss|p1a: Poliwag
+|move|p2a: Nidoqueen|Blizzard|p1a: Poliwag
+|-resisted|p1a: Poliwag
+|-damage|p1a: Poliwag|53/100
+|upkeep
+|turn|34
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Blizzard|p2a: Nidoqueen|[miss]
+|-miss|p1a: Poliwag
+|move|p2a: Nidoqueen|Blizzard|p1a: Poliwag
+|-resisted|p1a: Poliwag
+|-damage|p1a: Poliwag|48/100
+|upkeep
+|turn|35
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Blizzard|p2a: Nidoqueen
+|-crit|p2a: Nidoqueen
+|-supereffective|p2a: Nidoqueen
+|-damage|p2a: Nidoqueen|47/286
+|move|p2a: Nidoqueen|Blizzard|p1a: Poliwag
+|-resisted|p1a: Poliwag
+|-damage|p1a: Poliwag|44/100
+|upkeep
+|turn|36
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Amnesia|p1a: Poliwag
+|-fail|p1a: Poliwag
+|move|p2a: Nidoqueen|Blizzard|p1a: Poliwag
+|-resisted|p1a: Poliwag
+|-damage|p1a: Poliwag|40/100
+|upkeep
+|turn|37
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Blizzard|p2a: Nidoqueen
+|-supereffective|p2a: Nidoqueen
+|-damage|p2a: Nidoqueen|0 fnt
+|faint|p2a: Nidoqueen
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Ninetales|Ninetales, L74|259/259
+|turn|38
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Surf|p2a: Ninetales
+|-crit|p2a: Ninetales
+|-supereffective|p2a: Ninetales
+|-damage|p2a: Ninetales|12/259
+|move|p2a: Ninetales|Fire Blast|p1a: Poliwag|[miss]
+|-miss|p2a: Ninetales
+|upkeep
+|turn|39
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Poliwag|Surf|p2a: Ninetales
+|-supereffective|p2a: Ninetales
+|-damage|p2a: Ninetales|0 fnt
+|faint|p2a: Ninetales
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

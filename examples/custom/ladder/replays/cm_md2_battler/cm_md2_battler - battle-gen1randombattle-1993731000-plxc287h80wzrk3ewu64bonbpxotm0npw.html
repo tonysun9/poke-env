@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-1993731000-plxc287h80wzrk3ewu64bonbpxotm0npw</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-1993731000-plxc287h80wzrk3ewu64bonbpxotm0npw<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_md2_battler</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">j3ss3r</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-1993731000-plxc287h80wzrk3ewu64bonbpxotm0npw|init|battle
+|title|j3ss3r vs. cm_md2_battler
+|j|☆j3ss3r
+|j|☆cm_md2_battler
+|gametype|singles
+|player|p1|j3ss3r|wattson|1048
+|player|p2|cm_md2_battler|riley|1060
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Porygon|Porygon, L78|100/100
+|switch|p2a: Omastar|Omastar, L74|256/256
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_md2_battler)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|move|p2a: Omastar|Hydro Pump|p1a: Porygon
+|-damage|p1a: Porygon|51/100
+|move|p1a: Porygon|Thunder Wave|p2a: Omastar
+|-status|p2a: Omastar|par
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Porygon|Recover|p1a: Porygon
+|-heal|p1a: Porygon|100/100
+|move|p2a: Omastar|Hydro Pump|p1a: Porygon
+|-damage|p1a: Porygon|49/100
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Clefairy|Clefairy, L88|100/100
+|move|p2a: Omastar|Hydro Pump|p1a: Clefairy
+|-damage|p1a: Clefairy|60/100
+|upkeep
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Clefairy|Thunderbolt|p2a: Omastar
+|-supereffective|p2a: Omastar
+|-damage|p2a: Omastar|143/256 par
+|move|p2a: Omastar|Hydro Pump|p1a: Clefairy
+|-damage|p1a: Clefairy|18/100
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Clefairy|Thunderbolt|p2a: Omastar
+|-supereffective|p2a: Omastar
+|-damage|p2a: Omastar|30/256 par
+|move|p2a: Omastar|Hydro Pump|p1a: Clefairy
+|-damage|p1a: Clefairy|0 fnt
+|faint|p1a: Clefairy
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Haunter|Haunter, L70|100/100
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Haunter|Thunderbolt|p2a: Omastar
+|-supereffective|p2a: Omastar
+|-damage|p2a: Omastar|0 fnt
+|faint|p2a: Omastar
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Porygon|Porygon, L78|261/261
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Haunter|Hypnosis|p2a: Porygon
+|-status|p2a: Porygon|slp|[from] move: Hypnosis
+|cant|p2a: Porygon|slp
+|upkeep
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Haunter|Psychic|p2a: Porygon
+|-crit|p2a: Porygon
+|-damage|p2a: Porygon|139/261 slp
+|-unboost|p2a: Porygon|spa|1
+|-unboost|p2a: Porygon|spd|1
+|cant|p2a: Porygon|slp
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Haunter|Psychic|p2a: Porygon
+|-damage|p2a: Porygon|40/261 slp
+|-unboost|p2a: Porygon|spa|1
+|-unboost|p2a: Porygon|spd|1
+|cant|p2a: Porygon|slp
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Haunter|Psychic|p2a: Porygon
+|-damage|p2a: Porygon|0 fnt
+|faint|p2a: Porygon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Tauros|Tauros, L68|243/243
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Tauros|Earthquake|p1a: Haunter
+|-supereffective|p1a: Haunter
+|-damage|p1a: Haunter|25/100
+|move|p1a: Haunter|Hypnosis|p2a: Tauros
+|-status|p2a: Tauros|slp|[from] move: Hypnosis
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Tauros|slp
+|move|p1a: Haunter|Psychic|p2a: Tauros
+|-damage|p2a: Tauros|170/243 slp
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Mewtwo|Mewtwo, L57|100/100
+|cant|p2a: Tauros|slp
+|upkeep
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|-curestatus|p2a: Tauros|slp|[msg]
+|move|p1a: Mewtwo|Psychic|p2a: Tauros
+|-crit|p2a: Tauros
+|-damage|p2a: Tauros|0 fnt
+|faint|p2a: Tauros
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Tangela|Tangela, L74|249/249
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mewtwo|Amnesia|p1a: Mewtwo
+|-boost|p1a: Mewtwo|spa|2
+|-boost|p1a: Mewtwo|spd|2
+|move|p2a: Tangela|Body Slam|p1a: Mewtwo
+|-damage|p1a: Mewtwo|81/100
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mewtwo|Psychic|p2a: Tangela
+|-damage|p2a: Tangela|110/249
+|move|p2a: Tangela|Body Slam|p1a: Mewtwo
+|-damage|p1a: Mewtwo|62/100
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mewtwo|Psychic|p2a: Tangela
+|-damage|p2a: Tangela|0 fnt
+|faint|p2a: Tangela
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Paras|Paras, L90|246/246
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mewtwo|Recover|p1a: Mewtwo
+|-heal|p1a: Mewtwo|100/100
+|move|p2a: Paras|Body Slam|p1a: Mewtwo
+|-damage|p1a: Mewtwo|68/100
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mewtwo|Thunderbolt|p2a: Paras
+|-resisted|p2a: Paras
+|-damage|p2a: Paras|192/246
+|-status|p2a: Paras|par
+|cant|p2a: Paras|par
+|upkeep
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mewtwo|Psychic|p2a: Paras
+|-damage|p2a: Paras|29/246 par
+|-unboost|p2a: Paras|spa|1
+|-unboost|p2a: Paras|spd|1
+|move|p2a: Paras|Body Slam|p1a: Mewtwo
+|-damage|p1a: Mewtwo|32/100
+|upkeep
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mewtwo|Psychic|p2a: Paras
+|-damage|p2a: Paras|0 fnt
+|faint|p2a: Paras
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Haunter|Haunter, L70|208/208
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mewtwo|Recover|p1a: Mewtwo
+|-heal|p1a: Mewtwo|82/100
+|move|p2a: Haunter|Explosion|p1a: Mewtwo
+|-damage|p1a: Mewtwo|16/100
+|faint|p2a: Haunter
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

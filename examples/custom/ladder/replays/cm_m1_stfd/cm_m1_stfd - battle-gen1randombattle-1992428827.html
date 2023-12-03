@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-1992428827</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-1992428827<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_m1_stfd</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">DiegoSebastian</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-1992428827|init|battle
+|title|DiegoSebastian vs. cm_m1_stfd
+|j|☆DiegoSebastian
+|j|☆cm_m1_stfd
+|gametype|singles
+|player|p1|DiegoSebastian|red|1000
+|player|p2|cm_m1_stfd|riley|1000
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Venomoth|Venomoth, L73|100/100
+|switch|p2a: Nidoqueen|Nidoqueen, L74|286/286
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_m1_stfd)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|move|p1a: Venomoth|Psychic|p2a: Nidoqueen
+|-supereffective|p2a: Nidoqueen
+|-damage|p2a: Nidoqueen|178/286
+|-unboost|p2a: Nidoqueen|spa|1
+|-unboost|p2a: Nidoqueen|spd|1
+|move|p2a: Nidoqueen|Blizzard|p1a: Venomoth
+|-damage|p1a: Venomoth|84/100
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Hypno|Hypno, L69|100/100
+|move|p2a: Nidoqueen|Blizzard|p1a: Hypno
+|-damage|p1a: Hypno|86/100
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Nidoqueen|Blizzard|p1a: Hypno
+|-damage|p1a: Hypno|72/100
+|move|p1a: Hypno|Hypnosis|p2a: Nidoqueen|[miss]
+|-miss|p1a: Hypno
+|upkeep
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Nidoqueen|Blizzard|p1a: Hypno
+|-damage|p1a: Hypno|58/100
+|move|p1a: Hypno|Hypnosis|p2a: Nidoqueen
+|-status|p2a: Nidoqueen|slp|[from] move: Hypnosis
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Nidoqueen|slp
+|move|p1a: Hypno|Psychic|p2a: Nidoqueen
+|-supereffective|p2a: Nidoqueen
+|-damage|p2a: Nidoqueen|0 fnt
+|faint|p2a: Nidoqueen
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Mew|Mew, L63|257/257
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Mew|Thunderbolt|p1a: Hypno
+|-damage|p1a: Hypno|41/100
+|move|p1a: Hypno|Hypnosis|p2a: Mew|[miss]
+|-miss|p1a: Hypno
+|upkeep
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Mew|Thunderbolt|p1a: Hypno
+|-damage|p1a: Hypno|24/100
+|move|p1a: Hypno|Hypnosis|p2a: Mew
+|-status|p2a: Mew|slp|[from] move: Hypnosis
+|upkeep
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Mew|slp
+|move|p1a: Hypno|Psychic|p2a: Mew
+|-resisted|p2a: Mew
+|-damage|p2a: Mew|212/257 slp
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Venomoth|Venomoth, L73|84/100
+|cant|p2a: Mew|slp
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Double-Edge|p2a: Mew
+|-crit|p2a: Mew
+|-damage|p2a: Mew|104/257 slp
+|-damage|p1a: Venomoth|73/100|[from] Recoil|[of] p2a: Mew
+|cant|p2a: Mew|slp
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Double-Edge|p2a: Mew
+|-crit|p2a: Mew
+|-damage|p2a: Mew|0 fnt
+|-damage|p1a: Venomoth|63/100|[from] Recoil|[of] p2a: Mew
+|faint|p2a: Mew
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Abra|Abra, L81|206/206
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|DiegoSebastian has 120 seconds left.
+|switch|p1a: Scyther|Scyther, L78|100/100
+|move|p2a: Abra|Psychic|p1a: Scyther
+|-damage|p1a: Scyther|50/100
+|-unboost|p1a: Scyther|spa|1
+|-unboost|p1a: Scyther|spd|1
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|DiegoSebastian has 120 seconds left.
+|move|p1a: Scyther|Hyper Beam|p2a: Abra
+|-crit|p2a: Abra
+|-damage|p2a: Abra|0 fnt
+|faint|p2a: Abra
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Nidoran-F|Nidoran-F, L94|294/294
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|DiegoSebastian has 120 seconds left.
+|switch|p1a: Hypno|Hypno, L69|24/100
+|move|p2a: Nidoran-F|Blizzard|p1a: Hypno
+|-damage|p1a: Hypno|0 fnt
+|faint|p1a: Hypno
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|DiegoSebastian has 90 seconds left.
+|switch|p1a: Venomoth|Venomoth, L73|63/100
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Sleep Powder|p2a: Nidoran-F|[miss]
+|-miss|p1a: Venomoth
+|move|p2a: Nidoran-F|Blizzard|p1a: Venomoth|[miss]
+|-miss|p2a: Nidoran-F
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|DiegoSebastian has 90 seconds left.
+|move|p1a: Venomoth|Sleep Powder|p2a: Nidoran-F
+|-status|p2a: Nidoran-F|slp|[from] move: Sleep Powder
+|cant|p2a: Nidoran-F|slp
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Psychic|p2a: Nidoran-F
+|-supereffective|p2a: Nidoran-F
+|-damage|p2a: Nidoran-F|159/294 slp
+|cant|p2a: Nidoran-F|slp
+|upkeep
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Psychic|p2a: Nidoran-F
+|-supereffective|p2a: Nidoran-F
+|-damage|p2a: Nidoran-F|31/294 slp
+|cant|p2a: Nidoran-F|slp
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Venomoth|Psychic|p2a: Nidoran-F
+|-supereffective|p2a: Nidoran-F
+|-damage|p2a: Nidoran-F|0 fnt
+|faint|p2a: Nidoran-F
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Charizard|Charizard, L74|268/268
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Charizard|Hyper Beam|p1a: Venomoth
+|-damage|p1a: Venomoth|22/100
+|-mustrecharge|p2a: Charizard
+|move|p1a: Venomoth|Sleep Powder|p2a: Charizard
+|-status|p2a: Charizard|slp|[from] move: Sleep Powder
+|-hint|In Gen 1, if a Pokémon that has just used Hyper Beam and has yet to recharge is targeted with a sleep inducing move, any other status it may already have will be ignored and sleep will be induced regardless.
+|upkeep
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Pikachu|Pikachu, L87|100/100
+|cant|p2a: Charizard|slp
+|upkeep
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Pikachu|Thunderbolt|p2a: Charizard
+|-supereffective|p2a: Charizard
+|-damage|p2a: Charizard|109/268 slp
+|cant|p2a: Charizard|slp
+|upkeep
+|turn|23
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Pikachu|Surf|p2a: Charizard
+|-supereffective|p2a: Charizard
+|-damage|p2a: Charizard|0 fnt
+|faint|p2a: Charizard
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Snorlax|Snorlax, L70|369/369
+|turn|24
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|DiegoSebastian has 120 seconds left.
+|move|p1a: Pikachu|Thunder Wave|p2a: Snorlax
+|-status|p2a: Snorlax|par
+|move|p2a: Snorlax|Hyper Beam|p1a: Pikachu|[miss]
+|-miss|p2a: Snorlax
+|upkeep
+|turn|25
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|DiegoSebastian has 120 seconds left.
+|switch|p1a: Venomoth|Venomoth, L73|22/100
+|move|p2a: Snorlax|Hyper Beam|p1a: Venomoth
+|-damage|p1a: Venomoth|0 fnt
+|faint|p1a: Venomoth
+|inactive|Time left: 150 sec this turn | 150 sec total
+|inactive|DiegoSebastian has 120 seconds left.
+|switch|p1a: Eevee|Eevee, L89|100/100
+|turn|26
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Eevee|Quick Attack|p2a: Snorlax
+|-damage|p2a: Snorlax|323/369 par
+|cant|p2a: Snorlax|par
+|upkeep
+|turn|27
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Eevee|Body Slam|p2a: Snorlax
+|-damage|p2a: Snorlax|221/369 par
+|move|p2a: Snorlax|Hyper Beam|p1a: Eevee
+|-damage|p1a: Eevee|44/100
+|-mustrecharge|p2a: Snorlax
+|upkeep
+|turn|28
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Scyther|Scyther, L78|50/100
+|cant|p2a: Snorlax|recharge
+|upkeep
+|turn|29
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Scyther|Hyper Beam|p2a: Snorlax
+|-damage|p2a: Snorlax|74/369 par
+|-mustrecharge|p1a: Scyther
+|move|p2a: Snorlax|Hyper Beam|p1a: Scyther
+|-damage|p1a: Scyther|0 fnt
+|faint|p1a: Scyther
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Pikachu|Pikachu, L87|100/100
+|turn|30
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Pikachu|Thunderbolt|p2a: Snorlax
+|-damage|p2a: Snorlax|0 fnt
+|faint|p2a: Snorlax
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>
