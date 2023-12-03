@@ -37,18 +37,43 @@ async def cross_evaluate(
         for j, p_2 in enumerate(players):
             if j <= i:
                 continue
-            await asyncio.gather(
-                p_1.send_challenges(
-                    opponent=to_id_str(p_2.username),
-                    n_challenges=n_challenges,
-                    to_wait=p_2.ps_client.logged_in,
-                ),
-                p_2.accept_challenges(
-                    opponent=to_id_str(p_1.username),
-                    n_challenges=n_challenges,
-                    packed_team=p_2.next_team,
-                ),
-            )
+            try:
+                await asyncio.gather(
+                    p_1.send_challenges(
+                        opponent=to_id_str(p_2.username),
+                        n_challenges=n_challenges,
+                        to_wait=p_2.ps_client.logged_in,
+                    ),
+                    p_2.accept_challenges(
+                        opponent=to_id_str(p_1.username),
+                        n_challenges=n_challenges,
+                        packed_team=p_2.next_team,
+                    ),
+                    return_exceptions=False,
+                )
+
+            except KeyboardInterrupt:
+                print("\nperforming cleanup...")
+                POKE_LOOP.close()
+            except Exception as e:
+                POKE_LOOP.stop()
+                print("My exception in cross eval: ", e)
+                # If you want to re-raise the exceptions, you could do so here.
+                raise
+            # print(task1.result(), task2.result())
+            # await asyncio.gather(
+            #     p_1.send_challenges(
+            #         opponent=to_id_str(p_2.username),
+            #         n_challenges=n_challenges,
+            #         to_wait=p_2.ps_client.logged_in,
+            #     ),
+            #     p_2.accept_challenges(
+            #         opponent=to_id_str(p_1.username),
+            #         n_challenges=n_challenges,
+            #         packed_team=p_2.next_team,
+            #     ),
+            #     return_exceptions=False,
+            # )
             results[p_1.username][p_2.username] = p_1.win_rate
             results[p_2.username][p_1.username] = p_2.win_rate
 

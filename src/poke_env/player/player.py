@@ -144,7 +144,7 @@ class Player(ABC):
         )
         self._battle_end_condition: Condition = create_in_poke_loop(Condition)
         self._challenge_queue: Queue[Any] = create_in_poke_loop(Queue)
-        
+
         self._with_calcs = with_calcs
 
         if isinstance(team, Teambuilder):
@@ -180,7 +180,7 @@ class Player(ABC):
             self._team = team
         else:
             self._team = ConstantTeambuilder(team)
-            
+
     def create_battle_instance(self, *args, **kwargs):
         if self._with_calcs:
             return BattleWithCalcs(*args, **kwargs)
@@ -279,7 +279,9 @@ class Player(ABC):
                         await self._handle_battle_request(battle)
                         battle.move_on_next_request = False
             elif split_message[1] == "win" or split_message[1] == "tie":
-                self.logger.critical("Battle finished: %s", "|".join(split_message))
+                # self.logger.critical("Battle finished: %s", "|".join(split_message))
+                self.logger.info("battles left: %s", self._battle_count_queue.qsize())
+                # self.logger.critical("battle finished: %s", battle.battle_tag)
                 if split_message[1] == "win":
                     battle.won_by(split_message[2])
                 else:
@@ -440,6 +442,7 @@ class Player(ABC):
         await handle_threaded_coroutines(
             self._accept_challenges(opponent, n_challenges, packed_team)
         )
+        # await self._accept_challenges(opponent, n_challenges, packed_team)
 
     async def _accept_challenges(
         self,
@@ -614,6 +617,7 @@ class Player(ABC):
         if available_orders:
             return available_orders[int(random.random() * len(available_orders))]
         else:
+            print("***CHOOSING DEFAULT MOVE***")
             return self.choose_default_move()
 
     def choose_random_move(self, battle: AbstractBattle) -> BattleOrder:
@@ -633,7 +637,7 @@ class Player(ABC):
                 "battle should be Battle or DoubleBattle. Received %d" % (type(battle))
             )
 
-    async def ladder(self, n_games: int):
+    async def ladder(self, n_games: int, logs: Optional[str] = None):
         """Make the player play games on the ladder.
 
         n_games defines how many battles will be played.
@@ -641,22 +645,71 @@ class Player(ABC):
         :param n_games: Number of battles that will be played
         :type n_games: int
         """
-        await handle_threaded_coroutines(self._ladder(n_games))
+        await handle_threaded_coroutines(self._ladder(n_games=n_games, logs=logs))
 
-    async def _ladder(self, n_games: int):
+    async def _ladder(self, n_games: int, logs: Optional[str] = None):
         await self.ps_client.logged_in.wait()
         start_time = perf_counter()
 
         for _ in range(n_games):
             async with self._battle_start_condition:
+                won_battles_before = self.n_won_battles
+                played_battles_before = self.n_finished_battles
+
                 await self.ps_client.search_ladder_game(self._format, self.next_team)
                 await self._battle_start_condition.wait()
                 while self._battle_count_queue.full():
                     async with self._battle_end_condition:
+                        # Game has finished, now compare the state
+                        won_battles_after = self.n_won_battles
+                        played_battles_after = self.n_finished_battles
+
+                        self.logger.critical(
+                            "Games won: %d\n Games played: %d\n ",
+                            self.n_won_battles,
+                            self.n_finished_battles,
+                        )
+
+                        # Determine the result of the most recent game
+                        if played_battles_after > played_battles_before:
+                            if won_battles_after > won_battles_before:
+                                recent_game_result = "Win"
+                            else:
+                                recent_game_result = "Loss"
+
+                            self.logger.critical(
+                                "Most recent game result: %s\n Games won: %d\n Games played: %d\n Win rate: %f\n---",
+                                recent_game_result,
+                                self.n_won_battles,
+                                self.n_finished_battles,
+                                self.win_rate,
+                            )
+                            if logs:
+                                self.logger.critical("Using logs")
+                                with open(logs, "a") as log_file:
+                                    log_file.write(
+                                        "Most recent game result: %s, Games won: %d, Games played: %d, Win rate: %f, \n"
+                                        % (
+                                            recent_game_result,
+                                            self.n_won_battles,
+                                            self.n_finished_battles,
+                                            self.win_rate,
+                                        )
+                                    )
+                        won_battles_before = self.n_won_battles
+                        played_battles_before = self.n_finished_battles
+
                         await self._battle_end_condition.wait()
                 await self._battle_semaphore.acquire()
         await self._battle_count_queue.join()
-        self.logger.info(
+
+        self.logger.critical(
+            "Games won: %d\n Games played: %d\n ",
+            self.n_won_battles,
+            self.n_finished_battles,
+        )
+
+        self.logger.critical(
             "Laddering (%d battles) finished in %fs",
             n_games,
             perf_counter() - start_time,
@@ -708,6 +761,7 @@ class Player(ABC):
         await handle_threaded_coroutines(
             self._send_challenges(opponent, n_challenges, to_wait)
         )
+        # await self._send_challenges(opponent, n_challenges, to_wait)
 
     async def _send_challenges(
         self, opponent: str, n_challenges: int, to_wait: Optional[Event] = None

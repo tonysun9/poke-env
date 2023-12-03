@@ -31,6 +31,18 @@ def __stop_loop(loop: asyncio.AbstractEventLoop, thread: Thread):
     loop.call_soon_threadsafe(loop.stop)
     thread.join()
     loop.call_soon_threadsafe(loop.close)
+    # disable(CRITICAL)
+    # tasks = asyncio.all_tasks(loop)
+    # for task in tasks:
+    #     task.cancel()
+
+    # loop.run_until_complete(asyncio.gather(*tasks, return_exceptions=True))
+
+    # loop.run_until_complete(loop.shutdown_asyncgens())
+
+    # loop.call_soon_threadsafe(loop.stop)
+    # thread.join()
+    # loop.call_soon_threadsafe(loop.close)
 
 
 def __clear_loop():
@@ -60,9 +72,21 @@ def create_in_poke_loop(cls_: Any, *args: Any, **kwargs: Any) -> Any:
 
 
 async def handle_threaded_coroutines(coro: Any):
+    if not POKE_LOOP.is_running():
+        print("POKE_LOOP is not running!")
+    if not _t.is_alive():
+        print("_t thread is not alive!")
     task = asyncio.run_coroutine_threadsafe(coro, POKE_LOOP)
     await asyncio.wrap_future(task)
     return task.result()
+    # try:
+    #     result = await asyncio.wait_for(asyncio.wrap_future(task), timeout=3)
+    #     # result = await asyncio.wrap_future(task)
+    #     print(f"Task result: {result}")
+    #     return result
+    # except Exception as e:
+    #     print(f"Exception in task: {e}")
+    #     raise
 
 
 POKE_LOOP = asyncio.new_event_loop()
