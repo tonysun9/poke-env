@@ -17,9 +17,11 @@ class Battle(AbstractBattle):
         logger: Logger,
         gen: int,
         save_replays: Union[str, bool] = False,
-        replay_folder: str = "replays"
+        replay_folder: str = "replays",
     ):
-        super(Battle, self).__init__(battle_tag, username, logger, save_replays, replay_folder, gen)
+        super(Battle, self).__init__(
+            battle_tag, username, logger, save_replays, replay_folder, gen
+        )
 
         # Turn choice attributes
         self._available_moves: List[Move] = []
@@ -304,25 +306,46 @@ class Battle(AbstractBattle):
     def trapped(self, value: bool):
         self._trapped = value
 
+
 class BattleWithCalcs(Battle):
-    def __init__(self, battle_tag, username, logger, gen, save_replays=False, replay_folder="replays"):
+    def __init__(
+        self,
+        battle_tag,
+        username,
+        logger,
+        gen,
+        save_replays=False,
+        replay_folder="replays",
+    ):
         super().__init__(battle_tag, username, logger, gen, save_replays, replay_folder)
         self.battle_calcs = {}
 
     def add_initial_calcs(self):
         for p1_pkmn in self.team.values():
             for p2_pkmn in self.opponent_team.values():
-                self.battle_calcs[(p1_pkmn.species, p2_pkmn.species)] = get_1v1_calc(self._data.gen, p1_pkmn, p2_pkmn)
-                
+                self.battle_calcs[(p1_pkmn.species, p2_pkmn.species)] = get_1v1_calc(
+                    p1_pkmn, p2_pkmn
+                )
+
     def add_new_calc(self, p1_pkmn: Pokemon, p2_pkmn: Pokemon):
-        self.battle_calcs[(p1_pkmn.species, p2_pkmn.species)] = get_1v1_calc(self._data.gen, p1_pkmn, p2_pkmn)
-        
+        self.battle_calcs[(p1_pkmn.species, p2_pkmn.species)] = get_1v1_calc(
+            p1_pkmn, p2_pkmn
+        )
+
     def parse_message(self, split_message: List[str]):
-        if not self.battle_calcs and self.active_pokemon and self.opponent_active_pokemon:
+        if (
+            not self.battle_calcs
+            and self.active_pokemon
+            and self.opponent_active_pokemon
+        ):
             self.add_initial_calcs()
-            
-        if self.active_pokemon and self.opponent_active_pokemon and (self.active_pokemon.species, self.opponent_active_pokemon.species) not in self.battle_calcs:
+
+        if (
+            self.active_pokemon
+            and self.opponent_active_pokemon
+            and (self.active_pokemon.species, self.opponent_active_pokemon.species)
+            not in self.battle_calcs
+        ):
             self.add_new_calc(self.active_pokemon, self.opponent_active_pokemon)
-            
+
         super().parse_message(split_message)
-        
