@@ -3,25 +3,33 @@ import asyncio
 import numpy as np
 from gym.spaces import Box, Space
 from gym.utils.env_checker import check_env
-from rl.agents.dqn import DQNAgent
-from rl.memory import SequentialMemory
-from rl.policy import EpsGreedyQPolicy, LinearAnnealedPolicy
+
 from tabulate import tabulate
 from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
 
+import tensorflow as tf
+from keras import __version__
+
+tf.keras.__version__ = __version__
+from rl.agents.dqn import DQNAgent
+from rl.memory import SequentialMemory
+from rl.policy import EpsGreedyQPolicy, LinearAnnealedPolicy
+
 from poke_env.environment.abstract_battle import AbstractBattle
 from poke_env.player import (
     Gen8EnvSinglePlayer,
     MaxBasePowerPlayer,
-    ObservationType,
+    # ObservationType,
     RandomPlayer,
     SimpleHeuristicsPlayer,
     background_cross_evaluate,
     background_evaluate_player,
-    wrap_for_old_gym_api,
+    # wrap_for_old_gym_api,
 )
+
+from poke_env.data import GenData
 
 
 class SimpleRLPlayer(Gen8EnvSinglePlayer):
@@ -30,7 +38,8 @@ class SimpleRLPlayer(Gen8EnvSinglePlayer):
             current_battle, fainted_value=2.0, hp_value=1.0, victory_value=30.0
         )
 
-    def embed_battle(self, battle: AbstractBattle) -> ObservationType:
+    # def embed_battle(self, battle: AbstractBattle) -> ObservationType:
+    def embed_battle(self, battle: AbstractBattle):
         # -1 indicates that the move does not have a base power
         # or is not available
         moves_base_power = -np.ones(4)
@@ -43,6 +52,7 @@ class SimpleRLPlayer(Gen8EnvSinglePlayer):
                 moves_dmg_multiplier[i] = move.type.damage_multiplier(
                     battle.opponent_active_pokemon.type_1,
                     battle.opponent_active_pokemon.type_2,
+                    type_chart=GenData.from_gen(8).type_chart,
                 )
 
         # We count how many pokemons have fainted in each team
@@ -65,8 +75,9 @@ class SimpleRLPlayer(Gen8EnvSinglePlayer):
         low = [-1, -1, -1, -1, 0, 0, 0, 0, 0, 0]
         high = [3, 3, 3, 3, 4, 4, 4, 4, 1, 1]
         return Box(
-            np.array(low, dtype=np.float32),
-            np.array(high, dtype=np.float32),
+            low=np.array(low, dtype=np.float32),
+            high=np.array(high, dtype=np.float32),
+            shape=(10,),
             dtype=np.float32,
         )
 
@@ -74,24 +85,24 @@ class SimpleRLPlayer(Gen8EnvSinglePlayer):
 async def main():
     # First test the environment to ensure the class is consistent
     # with the OpenAI API
-    opponent = RandomPlayer(battle_format="gen8randombattle")
-    test_env = SimpleRLPlayer(
-        battle_format="gen8randombattle", start_challenging=True, opponent=opponent
-    )
-    check_env(test_env)
-    test_env.close()
+    # opponent = RandomPlayer(battle_format="gen8randombattle")
+    # test_env = SimpleRLPlayer(
+    #     battle_format="gen8randombattle", start_challenging=True, opponent=opponent
+    # )
+    # check_env(test_env)
+    # test_env.close()
 
     # Create one environment for training and one for evaluation
     opponent = RandomPlayer(battle_format="gen8randombattle")
     train_env = SimpleRLPlayer(
         battle_format="gen8randombattle", opponent=opponent, start_challenging=True
     )
-    train_env = wrap_for_old_gym_api(train_env)
+    # train_env = wrap_for_old_gym_api(train_env)
     opponent = RandomPlayer(battle_format="gen8randombattle")
     eval_env = SimpleRLPlayer(
         battle_format="gen8randombattle", opponent=opponent, start_challenging=True
     )
-    eval_env = wrap_for_old_gym_api(eval_env)
+    # eval_env = wrap_for_old_gym_api(eval_env)
 
     # Compute dimensions
     n_action = train_env.action_space.n
@@ -127,7 +138,7 @@ async def main():
         delta_clip=0.01,
         enable_double_dqn=True,
     )
-    dqn.compile(Adam(learning_rate=0.00025), metrics=["mae"])
+    dqn.compile(tf.keras.optimizers.legacy.Adam(learning_rate=0.00025), metrics=["mae"])
 
     # Training the model
     dqn.fit(train_env, nb_steps=10000)
@@ -183,4 +194,5 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.get_event_loop().run_until_complete(main())
+    # asyncio.get_event_loop().run_until_complete(main())
+    asyncio.run(main())

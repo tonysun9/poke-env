@@ -348,7 +348,10 @@ class OpenAIGymEnv(
         battle = copy.copy(self.current_battle)
         battle.logger = None
         self.last_battle = copy.deepcopy(battle)
-        return self._observations.get(), self.get_additional_info()
+        observations, info = self._observations.get(), self.get_additional_info()
+        import numpy as np
+
+        return np.array(observations)
 
     def get_additional_info(self) -> Dict[str, Any]:
         """
@@ -392,7 +395,8 @@ class OpenAIGymEnv(
                 terminated = True
             else:
                 truncated = True
-        return observation, reward, terminated, truncated, self.get_additional_info()
+        # return observation, reward, terminated, truncated, self.get_additional_info()
+        return observation, reward, terminated, self.get_additional_info()
 
     def render(self, mode: str = "human"):
         if self.current_battle is not None:
@@ -735,42 +739,42 @@ class LegacyOpenAIGymEnv(OpenAIGymEnv[ObsType, ActType], ABC):
         return obs, reward, terminated, truncated, info
 
 
-class _OpenAIGymEnvWrapper(LegacyOpenAIGymEnv[ObsType, ActType]):
-    def __init__(self, environment: OpenAIGymEnv[ObsType, ActType]):
-        self._wrapped = environment
-        self.step = super().step.__get__(self._wrapped, self._wrapped.__class__)
-        self.reset = super().reset.__get__(self._wrapped, self._wrapped.__class__)
-        self._instantiated = True
+# class _OpenAIGymEnvWrapper(LegacyOpenAIGymEnv[ObsType, ActType]):
+#     def __init__(self, environment: OpenAIGymEnv[ObsType, ActType]):
+#         self._wrapped = environment
+#         self.step = super().step.__get__(self._wrapped, self._wrapped.__class__)
+#         self.reset = super().reset.__get__(self._wrapped, self._wrapped.__class__)
+#         self._instantiated = True
 
-    def calc_reward(
-        self, last_battle: AbstractBattle, current_battle: AbstractBattle
-    ) -> float:
-        return self._wrapped.calc_reward(last_battle, current_battle)
+#     def calc_reward(
+#         self, last_battle: AbstractBattle, current_battle: AbstractBattle
+#     ) -> float:
+#         return self._wrapped.calc_reward(last_battle, current_battle)
 
-    def action_to_move(self, action: int, battle: AbstractBattle) -> BattleOrder:
-        return self._wrapped.action_to_move(action, battle)
+#     def action_to_move(self, action: int, battle: AbstractBattle) -> BattleOrder:
+#         return self._wrapped.action_to_move(action, battle)
 
-    def embed_battle(self, battle: AbstractBattle) -> ObsType:
-        return self._wrapped.embed_battle(battle)
+#     def embed_battle(self, battle: AbstractBattle) -> ObsType:
+#         return self._wrapped.embed_battle(battle)
 
-    def describe_embedding(self) -> Space[ObsType]:
-        return self._wrapped.describe_embedding()
+#     def describe_embedding(self) -> Space[ObsType]:
+#         return self._wrapped.describe_embedding()
 
-    def action_space_size(self) -> int:
-        return self._wrapped.action_space_size()
+#     def action_space_size(self) -> int:
+#         return self._wrapped.action_space_size()
 
-    def get_opponent(self) -> Union[Player, str, List[Player], List[str]]:
-        return self._wrapped.get_opponent()
+#     def get_opponent(self) -> Union[Player, str, List[Player], List[str]]:
+#         return self._wrapped.get_opponent()
 
-    def __getattr__(self, item: str):
-        if item == "_instantiated":
-            return False
-        return getattr(self._wrapped, item)
+#     def __getattr__(self, item: str):
+#         if item == "_instantiated":
+#             return False
+#         return getattr(self._wrapped, item)
 
-    def __setattr__(self, key: str, value: Any):
-        if not self._instantiated:
-            return super().__setattr__(key, value)
-        return setattr(self._wrapped, key, value)
+#     def __setattr__(self, key: str, value: Any):
+#         if not self._instantiated:
+#             return super().__setattr__(key, value)
+#         return setattr(self._wrapped, key, value)
 
 
 def wrap_for_old_gym_api(
@@ -785,4 +789,5 @@ def wrap_for_old_gym_api(
     :return: The wrapped environment
     :rtype: OpenAIGymEnv
     """
-    return _OpenAIGymEnvWrapper(env)
+    # return _OpenAIGymEnvWrapper(env)
+    return LegacyOpenAIGymEnv(env)
