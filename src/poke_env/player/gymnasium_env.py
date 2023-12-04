@@ -118,14 +118,14 @@ class _EnvMetaclass(type(Env)):
     pass
 
 
-class _OpenAIGymEnvMetaclass(_EnvMetaclass, _ABCMetaclass):
+class _GymnasiumEnvMetaclass(_EnvMetaclass, _ABCMetaclass):
     pass
 
 
 class GymnasiumEnv(
     Env[ObsType, ActType],
     ABC,
-    metaclass=_OpenAIGymEnvMetaclass,
+    metaclass=_GymnasiumEnvMetaclass,
 ):
     """
     Base class implementing the Gymnasium API on the main thread.
@@ -353,7 +353,7 @@ class GymnasiumEnv(
         observations, info = self._observations.get(), self.get_additional_info()
         import numpy as np
 
-        return np.array(observations)
+        return np.array(observations), info
 
     def get_additional_info(self) -> Dict[str, Any]:
         """
@@ -397,8 +397,8 @@ class GymnasiumEnv(
                 terminated = True
             else:
                 truncated = True
-        # return observation, reward, terminated, truncated, self.get_additional_info()
-        return observation, reward, terminated, self.get_additional_info()
+        return observation, reward, terminated, truncated, self.get_additional_info()
+        # return observation, reward, terminated, self.get_additional_info()
 
     def render(self, mode: str = "human"):
         if self.current_battle is not None:
@@ -715,27 +715,3 @@ class GymnasiumEnv(
 
     def __getattr__(self, item: str):
         return getattr(self.agent, item)
-
-
-class LegacyOpenAIGymEnv(GymnasiumEnv[ObsType, ActType], ABC):
-    """
-    Subclass of OpenAIGymEnv compatible with the old gym API.
-    If you need compatibility with the old gym API you should use the
-    `wrap_for_old_gym_api` function.
-    """
-
-    def reset(
-        self,
-        *,
-        seed: Optional[int] = None,
-        return_info: bool = False,
-        options: Optional[Dict[str, Any]] = None,
-    ) -> Tuple[ObsType, Dict[str, Any]]:
-        obs, info = super().reset(seed=seed, return_info=True, options=options)
-        return obs, info
-
-    def step(
-        self, action: ActType
-    ) -> Tuple[ObsType, float, bool, bool, Dict[str, Any]]:
-        obs, reward, terminated, truncated, info = super().step(action)
-        return obs, reward, terminated, truncated, info

@@ -6,55 +6,61 @@ from tabulate import tabulate
 
 from poke_env.player import RandomPlayer, cross_evaluate
 
-from players.player_1v1 import MaxBase, MaxDamage
+from players.player_singles import MaxBase, MaxDamage, DQNPlayer
+
+# from poke_env.player.gymnasium_env import _AsyncPlayer
+
+# from rl.sb_example import SimpleRLPlayer
+
 
 import logging
 
 logging.basicConfig(level=logging.CRITICAL)
 
-from functools import wraps
-
-# def exit_on_exception(coro):
-#     @wraps(coro)
-#     async def wrapper(*args, **kwargs):
-#         try:
-#             return await coro(*args, **kwargs)
-#         except Exception as e:
-#             print(f"Caught exception: {e}")
-#             os._exit(1)
-#     return wrapper
-
-FORMAT = "gen1randombattle"
+BATTLE_FORMAT = "gen1randombattle"
 NUM_BATTLES = 100
 
+MODEL_PATH = "rl/models/dqn_0_1"
 
-# @exit_on_exception
+
 async def main():
-    try:
-        player1 = RandomPlayer(battle_format=FORMAT, max_concurrent_battles=10)
-        player2 = MaxBase(battle_format=FORMAT, max_concurrent_battles=10)
-        player3 = MaxDamage(
-            battle_format=FORMAT, max_concurrent_battles=10, with_calcs=True
-        )
-        # players = [player1, player2]
-        # players = [player2, player3]
-        players = [player1, player2, player3]
+    dqn_player = DQNPlayer(
+        battle_format=BATTLE_FORMAT,
+        model_path=MODEL_PATH,
+        # save_replays=True,
+        # replay_folder="rl/replays/v0.1",
+    )
 
-        cross_evaluation = await cross_evaluate(players, n_challenges=NUM_BATTLES)
+    # try:
+    random_player = RandomPlayer(battle_format=BATTLE_FORMAT, max_concurrent_battles=10)
+    mb_player = MaxBase(battle_format=BATTLE_FORMAT, max_concurrent_battles=10)
+    md_player = MaxDamage(
+        battle_format=BATTLE_FORMAT, max_concurrent_battles=10, with_calcs=True
+    )
+    # players = [random_player, mb_player]
+    # players = [mb_player, md_player]
+    # players = [random_player, mb_player, md_player]
 
-        # Defines a header for displaying results
-        table = [["-"] + [p.username for p in players]]
+    # players = [random_player, dqn_player]
+    # players = [mb_player, dqn_player]
+    # players = [md_player, dqn_player]
+    players = [random_player, mb_player, md_player, dqn_player]
 
-        # Adds one line per player with corresponding results
-        for p_1, results in cross_evaluation.items():
-            table.append([p_1] + [cross_evaluation[p_1][p_2] for p_2 in results])
+    cross_evaluation = await cross_evaluate(players, n_challenges=NUM_BATTLES)
 
-        # Displays results in a nicely formatted table.
-        print(tabulate(table))
-    except Exception as e:
-        print(f"Caught exception: {e}")
-        # sys.exit(1)
-        os._exit(1)
+    # Defines a header for displaying results
+    table = [["-"] + [p.username for p in players]]
+
+    # Adds one line per player with corresponding results
+    for p_1, results in cross_evaluation.items():
+        table.append([p_1] + [cross_evaluation[p_1][p_2] for p_2 in results])
+
+    # Displays results in a nicely formatted table.
+    print(tabulate(table))
+    # except Exception as e:
+    #     print(f"Caught exception: {e}")
+    #     # sys.exit(1)
+    #     os._exit(1)
 
 
 if __name__ == "__main__":

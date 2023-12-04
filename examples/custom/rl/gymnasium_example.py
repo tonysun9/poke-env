@@ -29,12 +29,14 @@ from poke_env.player import (
     background_cross_evaluate,
     background_evaluate_player,
 )
-from poke_env.player.gymnasium_env_player import Gen8EnvSinglePlayer
+from poke_env.player.gymnasium_env_player import Gen1EnvSinglePlayer
 
 from poke_env.data import GenData
 
+BATTLE_FORMAT = "gen1randombattle"
 
-class SimpleRLPlayer(Gen8EnvSinglePlayer):
+
+class SimpleRLPlayer(Gen1EnvSinglePlayer):
     def calc_reward(self, last_battle, current_battle) -> float:
         return self.reward_computing_helper(
             current_battle, fainted_value=2.0, hp_value=1.0, victory_value=30.0
@@ -87,22 +89,22 @@ class SimpleRLPlayer(Gen8EnvSinglePlayer):
 async def main():
     # First test the environment to ensure the class is consistent
     # with the OpenAI API
-    # opponent = RandomPlayer(battle_format="gen8randombattle")
+    # opponent = RandomPlayer(battle_format=BATTLE_FORMAT)
     # test_env = SimpleRLPlayer(
-    #     battle_format="gen8randombattle", start_challenging=True, opponent=opponent
+    #     battle_format=BATTLE_FORMAT, start_challenging=True, opponent=opponent
     # )
     # check_env(test_env)
     # test_env.close()
 
     # Create one environment for training and one for evaluation
-    opponent = RandomPlayer(battle_format="gen8randombattle")
+    opponent = RandomPlayer(battle_format=BATTLE_FORMAT)
     train_env = SimpleRLPlayer(
-        battle_format="gen8randombattle", opponent=opponent, start_challenging=True
+        battle_format=BATTLE_FORMAT, opponent=opponent, start_challenging=True
     )
     # train_env = wrap_for_old_gym_api(train_env)
-    opponent = RandomPlayer(battle_format="gen8randombattle")
+    opponent = RandomPlayer(battle_format=BATTLE_FORMAT)
     eval_env = SimpleRLPlayer(
-        battle_format="gen8randombattle", opponent=opponent, start_challenging=True
+        battle_format=BATTLE_FORMAT, opponent=opponent, start_challenging=True
     )
     # eval_env = wrap_for_old_gym_api(eval_env)
 
@@ -147,12 +149,12 @@ async def main():
     train_env.close()
 
     # Evaluating the model
-    print("Results against random player:")
-    dqn.test(eval_env, nb_episodes=100, verbose=False, visualize=False)
-    print(
-        f"DQN Evaluation: {eval_env.n_won_battles} victories out of {eval_env.n_finished_battles} episodes"
-    )
-    second_opponent = MaxBasePowerPlayer(battle_format="gen8randombattle")
+    # print("Results against random player:")
+    # dqn.test(eval_env, nb_episodes=100, verbose=False, visualize=False)
+    # print(
+    #     f"DQN Evaluation: {eval_env.n_won_battles} victories out of {eval_env.n_finished_battles} episodes"
+    # )
+    second_opponent = MaxBasePowerPlayer(battle_format=BATTLE_FORMAT)
     eval_env.reset_env(restart=True, opponent=second_opponent)
     print("Results against max base power player:")
     dqn.test(eval_env, nb_episodes=100, verbose=False, visualize=False)
@@ -175,9 +177,9 @@ async def main():
     n_challenges = 50
     players = [
         eval_env.agent,
-        RandomPlayer(battle_format="gen8randombattle"),
-        MaxBasePowerPlayer(battle_format="gen8randombattle"),
-        SimpleHeuristicsPlayer(battle_format="gen8randombattle"),
+        RandomPlayer(battle_format=BATTLE_FORMAT),
+        MaxBasePowerPlayer(battle_format=BATTLE_FORMAT),
+        SimpleHeuristicsPlayer(battle_format=BATTLE_FORMAT),
     ]
     cross_eval_task = background_cross_evaluate(players, n_challenges)
     dqn.test(
