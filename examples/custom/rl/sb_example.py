@@ -114,7 +114,7 @@ async def main():
     model = DQN("MlpPolicy", train_env, verbose=1)
     model.learn(total_timesteps=int(1e5))
 
-    model.save("models/pokemon_rl_dqn")
+    model.save("models/pokemon_rl_dqn_2")
 
     opponent = RandomPlayer(battle_format=BATTLE_FORMAT)
     eval_env = SimpleRLPlayer(

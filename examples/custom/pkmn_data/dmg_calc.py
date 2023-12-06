@@ -18,7 +18,11 @@ EXCLUDE_DMG_MOVES = {"counter"}
 
 
 clean_move = (
-    lambda move: move.replace(" ", "").replace("-", "").replace(".", "").lower()
+    lambda move: move.replace(" ", "")
+    .replace("-", "")
+    .replace(".", "")
+    .replace("’", "")
+    .lower()
 )
 
 

@@ -6,7 +6,15 @@ from tabulate import tabulate
 
 from poke_env.player import RandomPlayer, cross_evaluate
 
-from players.player_singles import MaxBase, MaxDamage, DQNPlayer, TestDQNPlayer
+from players.player_singles import (
+    MaxBase,
+    MaxDamage,
+    DQNPlayer,
+    # TestDQNPlayer,
+    DQNPlayerObservation,
+)
+
+from poke_env.ps_client.account_configuration import AccountConfiguration
 
 # from poke_env.player.gymnasium_env import _AsyncPlayer
 
@@ -19,24 +27,27 @@ logging.basicConfig(level=logging.CRITICAL)
 
 BATTLE_FORMAT = "gen1randombattle"
 NUM_BATTLES = 1
-
-MODEL_PATH = "rl/models/dqn_0_1"
+MODEL_PATH = "rl/models/observation_0_1_3e5"
 
 
 async def main():
-    # dqn_player = DQNPlayer(
-    #     battle_format=BATTLE_FORMAT,
-    #     model_path=MODEL_PATH,
-    #     # save_replays=True,
-    #     # replay_folder="rl/replays/v0.1",
-    # )
-    test_dqn_player = TestDQNPlayer(
+    dqn_player = DQNPlayerObservation(
         battle_format=BATTLE_FORMAT,
         model_path=MODEL_PATH,
+        save_replays=True,
+        replay_folder="rl/replays/v1.1",
     )
+    # test_dqn_player = TestDQNPlayer(
+    #     battle_format=BATTLE_FORMAT,
+    #     model_path=MODEL_PATH,
+    # )
 
     # try:
-    random_player = RandomPlayer(battle_format=BATTLE_FORMAT, max_concurrent_battles=10)
+    random_player = RandomPlayer(
+        battle_format=BATTLE_FORMAT,
+        max_concurrent_battles=10,
+        account_configuration=AccountConfiguration("Random Player", ""),
+    )
     mb_player = MaxBase(battle_format=BATTLE_FORMAT, max_concurrent_battles=10)
     md_player = MaxDamage(
         battle_format=BATTLE_FORMAT, max_concurrent_battles=10, with_calcs=True
@@ -48,9 +59,9 @@ async def main():
     # players = [random_player, dqn_player]
     # players = [mb_player, dqn_player]
     # players = [md_player, dqn_player]
-    # players = [random_player, mb_player, md_player, dqn_player]
+    players = [random_player, mb_player, md_player, dqn_player]
 
-    players = [random_player, test_dqn_player]
+    # players = [random_player, test_dqn_player]
 
     cross_evaluation = await cross_evaluate(players, n_challenges=NUM_BATTLES)
 
