@@ -24,11 +24,11 @@ def get_1v1_calc(p1_pkmn, p2_pkmn, gen=1):
         "moveNames": list(dmg_moves.keys()),
     }
 
-    if p1_pkmn.species == "ditto" and len(p1_pkmn.moves.items()) > 1:
-        print("damage calc: ditto found!")
-        print("data calc payload: ", data)
-        print("pokemon moves: ", p1_pkmn.moves.items())
-        print("---")
+    # if p1_pkmn.species == "ditto" and len(p1_pkmn.moves.items()) > 1:
+    #     print("damage calc: ditto found!")
+    #     print("data calc payload: ", data)
+    #     print("pokemon moves: ", p1_pkmn.moves.items())
+    #     print("---")
 
     response = requests.post("http://localhost:3000/calculate", json=data, timeout=3)
     json = response.json()

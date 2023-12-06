@@ -1,0 +1,70 @@
+Acid Armor
+Agility
+Amnesia
+Barrier
+Blizzard
+Body Slam
+Bubble Beam
+Confuse Ray
+Counter
+Crabhammer
+Double Kick
+Double-Edge
+Drill Peck
+Earthquake
+Explosion
+Fire Blast
+Flamethrower
+Glare
+Growth
+High Jump Kick
+Hydro Pump
+Hyper Beam
+Hypnosis
+Ice Beam
+Leer
+Lovely Kiss
+Low Kick
+Meditate
+Mega Drain
+Mega Kick
+Mimic
+Mirror Move
+Night Shade
+Pin Missile
+Psychic
+Psywave
+Quick Attack
+Razor Leaf
+Recover
+Reflect
+Rest
+Rock Slide
+Rolling Kick
+Sand Attack
+Seismic Toss
+Self-Destruct
+Sing
+Sky Attack
+Slash
+Sleep Powder
+Sludge
+Smokescreen
+Soft-Boiled
+Spore
+Stomp
+Stun Spore
+Submission
+Substitute
+Super Fang
+Surf
+Swords Dance
+Tail Whip
+Take Down
+Thunder
+Thunder Wave
+Thunderbolt
+Transform
+Tri Attack
+Twineedle
+Wing Attack

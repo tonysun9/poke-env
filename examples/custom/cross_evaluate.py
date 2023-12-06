@@ -6,7 +6,7 @@ from tabulate import tabulate
 
 from poke_env.player import RandomPlayer, cross_evaluate
 
-from players.player_singles import MaxBase, MaxDamage, DQNPlayer
+from players.player_singles import MaxBase, MaxDamage, DQNPlayer, TestDQNPlayer
 
 # from poke_env.player.gymnasium_env import _AsyncPlayer
 
@@ -18,17 +18,21 @@ import logging
 logging.basicConfig(level=logging.CRITICAL)
 
 BATTLE_FORMAT = "gen1randombattle"
-NUM_BATTLES = 100
+NUM_BATTLES = 1
 
 MODEL_PATH = "rl/models/dqn_0_1"
 
 
 async def main():
-    dqn_player = DQNPlayer(
+    # dqn_player = DQNPlayer(
+    #     battle_format=BATTLE_FORMAT,
+    #     model_path=MODEL_PATH,
+    #     # save_replays=True,
+    #     # replay_folder="rl/replays/v0.1",
+    # )
+    test_dqn_player = TestDQNPlayer(
         battle_format=BATTLE_FORMAT,
         model_path=MODEL_PATH,
-        # save_replays=True,
-        # replay_folder="rl/replays/v0.1",
     )
 
     # try:
@@ -44,7 +48,9 @@ async def main():
     # players = [random_player, dqn_player]
     # players = [mb_player, dqn_player]
     # players = [md_player, dqn_player]
-    players = [random_player, mb_player, md_player, dqn_player]
+    # players = [random_player, mb_player, md_player, dqn_player]
+
+    players = [random_player, test_dqn_player]
 
     cross_evaluation = await cross_evaluate(players, n_challenges=NUM_BATTLES)
 

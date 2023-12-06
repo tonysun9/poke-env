@@ -1,0 +1,31 @@
+Electrode	140	27.34%
+Aerodactyl, Jolteon, Mewtwo	130	25.39%
+Alakazam, Dugtrio	120	23.44%
+Persian, Starmie	115	22.46%
+Gengar, Tauros	110	21.48%
+Electabuzz, Rapidash, Scyther	105	20.50%
+Charizard, Dodrio, Fearow, Mew, Ninetales, Raichu, Tentacruel, Zapdos	100	19.53%
+Raticate	97	18.95%
+Arcanine, Jynx, Primeape	95	18.55%
+Magmar	93	18.16%
+Pidgeot	91	17.77%
+Golbat, Kangaskhan, Moltres, Mr. Mime, Venomoth	90	17.59%
+Hitmonlee	87	16.99%
+Articuno, Golduck, Nidoking, Pinsir, Seadra	85	16.60%
+Gyarados	81	15.82%
+Arbok, Dragonite, Kabutops, Venusaur	80	15.63%
+Blastoise	78	15.23%
+Hitmonchan	76	14.84%
+Nidoqueen	76	14.84%
+Beedrill, Kingler	75	14.65%
+Butterfree, Cloyster, Dewgong, Magneton, Onix, Poliwrath, Victreebel	70	13.67%
+Seaking	68	13.28%
+Hypno	67	13.09%
+Flareon, Sandslash, Vaporeon	65	12.70%
+Clefable, Farfetch'd, Lapras, Tangela, Weezing	60	11.71%
+Exeggutor, Machamp, Omastar	55	10.74%
+Chansey, Muk, Vileplume	50	9.77%
+Ditto	48	9.38%
+Golem, Marowak, Wigglytuff	45	8.79%
+Porygon, Rhydon	40	7.81%
+Lickitung, Parasect, Slowbro, Snorlax	30	5.86%
