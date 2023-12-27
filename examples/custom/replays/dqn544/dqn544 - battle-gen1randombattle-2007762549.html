@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-2007762549</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-2007762549<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">dqn544</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">Seyr101</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-2007762549|init|battle
+|title|Seyr101 vs. dqn544
+|j|☆Seyr101
+|j|☆dqn544
+|gametype|singles
+|player|p1|Seyr101|ninjaboy|1075
+|player|p2|dqn544|riley|1000
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Magmar|Magmar, L78|100/100
+|switch|p2a: Exeggcute|Exeggcute, L78|254/254
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by Seyr101)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|inactive|dqn544 also wants the timer to be on.
+|move|p1a: Magmar|Confuse Ray|p2a: Exeggcute
+|-start|p2a: Exeggcute|confusion
+|-activate|p2a: Exeggcute|confusion
+|move|p2a: Exeggcute|Psychic|p1a: Magmar
+|-damage|p1a: Magmar|76/100
+|-unboost|p1a: Magmar|spa|1
+|-unboost|p1a: Magmar|spd|1
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Magmar|Fire Blast|p2a: Exeggcute
+|-supereffective|p2a: Exeggcute
+|-damage|p2a: Exeggcute|76/254
+|-activate|p2a: Exeggcute|confusion
+|move|p2a: Exeggcute|Psychic|p1a: Magmar
+|-crit|p1a: Magmar
+|-damage|p1a: Magmar|28/100
+|-unboost|p1a: Magmar|spa|1
+|-unboost|p1a: Magmar|spd|1
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Magmar|Fire Blast|p2a: Exeggcute|[miss]
+|-miss|p1a: Magmar
+|-activate|p2a: Exeggcute|confusion
+|move|p2a: Exeggcute|Psychic|p1a: Magmar
+|-damage|p1a: Magmar|0 fnt
+|faint|p1a: Magmar
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Clefairy|Clefairy, L88|100/100
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Clefairy|Blizzard|p2a: Exeggcute|[miss]
+|-miss|p1a: Clefairy
+|-end|p2a: Exeggcute|confusion
+|move|p2a: Exeggcute|Stun Spore|p1a: Clefairy
+|-status|p1a: Clefairy|par
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Exeggcute|Stun Spore|p1a: Clefairy|[miss]
+|-miss|p2a: Exeggcute
+|move|p1a: Clefairy|Thunder Wave|p2a: Exeggcute
+|-status|p2a: Exeggcute|par
+|upkeep
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p1a: Clefairy|par
+|cant|p2a: Exeggcute|par
+|upkeep
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Clefairy|Blizzard|p2a: Exeggcute
+|-supereffective|p2a: Exeggcute
+|-damage|p2a: Exeggcute|0 fnt
+|faint|p2a: Exeggcute
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Jigglypuff|Jigglypuff, L91|394/394
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Jigglypuff|Seismic Toss|p1a: Clefairy
+|-damage|p1a: Clefairy|70/100 par
+|cant|p1a: Clefairy|par
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Jigglypuff|Blizzard|p1a: Clefairy|[miss]
+|-miss|p2a: Jigglypuff
+|cant|p1a: Clefairy|par
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Jigglypuff|Blizzard|p1a: Clefairy
+|-damage|p1a: Clefairy|49/100 par
+|move|p1a: Clefairy|Thunder Wave|p2a: Jigglypuff
+|-status|p2a: Jigglypuff|par
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Clefairy|Blizzard|p2a: Jigglypuff
+|-damage|p2a: Jigglypuff|275/394 par
+|move|p2a: Jigglypuff|Seismic Toss|p1a: Clefairy
+|-damage|p1a: Clefairy|19/100 par
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Clefairy|Blizzard|p2a: Jigglypuff
+|-damage|p2a: Jigglypuff|164/394 par
+|move|p2a: Jigglypuff|Blizzard|p1a: Clefairy
+|-damage|p1a: Clefairy|0 fnt
+|faint|p1a: Clefairy
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Magnemite|Magnemite, L90|100/100
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Magnemite|Thunder|p2a: Jigglypuff
+|-damage|p2a: Jigglypuff|0 fnt
+|faint|p2a: Jigglypuff
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Beedrill|Beedrill, L86|287/287
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Beedrill|Hyper Beam|p1a: Magnemite
+|-crit|p1a: Magnemite
+|-damage|p1a: Magnemite|18/100
+|-mustrecharge|p2a: Beedrill
+|move|p1a: Magnemite|Thunder Wave|p2a: Beedrill
+|-status|p2a: Beedrill|par
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Magnemite|Rest|p1a: Magnemite
+|-status|p1a: Magnemite|slp|[from] move: Rest
+|-heal|p1a: Magnemite|100/100 slp|[silent]
+|cant|p2a: Beedrill|recharge
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Alakazam|Alakazam, L66|209/209
+|cant|p1a: Magnemite|slp
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Alakazam|Recover|p2a: Alakazam
+|-fail|p2a: Alakazam
+|-curestatus|p1a: Magnemite|slp|[msg]
+|upkeep
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Alakazam|Psychic|p1a: Magnemite
+|-damage|p1a: Magnemite|72/100
+|-unboost|p1a: Magnemite|spa|1
+|-unboost|p1a: Magnemite|spd|1
+|move|p1a: Magnemite|Thunder Wave|p2a: Alakazam
+|-status|p2a: Alakazam|par
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Magnemite|Thunder|p2a: Alakazam
+|-damage|p2a: Alakazam|126/209 par
+|move|p2a: Alakazam|Psychic|p1a: Magnemite
+|-damage|p1a: Magnemite|27/100
+|upkeep
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Magnemite|Thunder|p2a: Alakazam
+|-crit|p2a: Alakazam
+|-damage|p2a: Alakazam|0 fnt
+|faint|p2a: Alakazam
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Pidgey|Pidgey, L97|274/274
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Pidgey|Sky Attack||[still]
+|-prepare|p2a: Pidgey|Sky Attack
+|move|p1a: Magnemite|Thunder|p2a: Pidgey|[miss]
+|-miss|p1a: Magnemite
+|upkeep
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Pidgey|Sky Attack|p1a: Magnemite|[from]Sky Attack
+|-resisted|p1a: Magnemite
+|-damage|p1a: Magnemite|0 fnt
+|faint|p1a: Magnemite
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Machoke|Machoke, L83|100/100
+|turn|23
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Pidgey|Sky Attack||[still]
+|-prepare|p2a: Pidgey|Sky Attack
+|move|p1a: Machoke|Body Slam|p2a: Pidgey
+|-damage|p2a: Pidgey|195/274
+|upkeep
+|turn|24
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Pidgey|Sky Attack|p1a: Machoke|[from]Sky Attack
+|-supereffective|p1a: Machoke
+|-damage|p1a: Machoke|0 fnt
+|faint|p1a: Machoke
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Beedrill|Beedrill, L86|100/100
+|turn|25
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Beedrill|Swords Dance|p1a: Beedrill
+|-boost|p1a: Beedrill|atk|2
+|move|p2a: Pidgey|Sky Attack||[still]
+|-prepare|p2a: Pidgey|Sky Attack
+|upkeep
+|turn|26
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Beedrill|Mega Drain|p2a: Pidgey
+|-resisted|p2a: Pidgey
+|-damage|p2a: Pidgey|181/274
+|move|p2a: Pidgey|Sky Attack|p1a: Beedrill|[from]Sky Attack
+|-supereffective|p1a: Beedrill
+|-damage|p1a: Beedrill|0 fnt
+|faint|p1a: Beedrill
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Diglett|Diglett, L86|100/100
+|turn|27
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Diglett|Rock Slide|p2a: Pidgey
+|-supereffective|p2a: Pidgey
+|-damage|p2a: Pidgey|76/274
+|move|p2a: Pidgey|Sky Attack||[still]
+|-prepare|p2a: Pidgey|Sky Attack
+|upkeep
+|turn|28
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Diglett|Substitute|p1a: Diglett
+|-start|p1a: Diglett|Substitute
+|-damage|p1a: Diglett|76/100
+|move|p2a: Pidgey|Sky Attack|p1a: Diglett|[from]Sky Attack
+|-end|p1a: Diglett|Substitute
+|upkeep
+|turn|29
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Diglett|Rock Slide|p2a: Pidgey|[miss]
+|-miss|p1a: Diglett
+|move|p2a: Pidgey|Sky Attack||[still]
+|-prepare|p2a: Pidgey|Sky Attack
+|upkeep
+|turn|30
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Diglett|Substitute|p1a: Diglett
+|-start|p1a: Diglett|Substitute
+|-damage|p1a: Diglett|51/100
+|move|p2a: Pidgey|Sky Attack|p1a: Diglett|[from]Sky Attack
+|-end|p1a: Diglett|Substitute
+|upkeep
+|turn|31
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Diglett|Rock Slide|p2a: Pidgey
+|-crit|p2a: Pidgey
+|-supereffective|p2a: Pidgey
+|-damage|p2a: Pidgey|0 fnt
+|faint|p2a: Pidgey
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Dewgong|Dewgong, L74|286/286
+|turn|32
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Diglett|Rock Slide|p2a: Dewgong
+|-supereffective|p2a: Dewgong
+|-damage|p2a: Dewgong|185/286
+|move|p2a: Dewgong|Blizzard|p1a: Diglett
+|-supereffective|p1a: Diglett
+|-damage|p1a: Diglett|0 fnt
+|faint|p1a: Diglett
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

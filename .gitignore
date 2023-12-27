@@ -113,3 +113,8 @@ venv.bak/
 
 # PyCharm
 .idea/
+
+wandb/
+
+examples/custom/rl/replays/
+examples/custom/rl/tb_logs/

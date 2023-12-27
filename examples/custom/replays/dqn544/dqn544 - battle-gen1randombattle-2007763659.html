@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-2007763659</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-2007763659<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">dqn544</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">tr3sheep</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-2007763659|init|battle
+|title|tr3sheep vs. dqn544
+|j|☆tr3sheep
+|j|☆dqn544
+|gametype|singles
+|player|p1|tr3sheep|preschooler|1182
+|player|p2|dqn544|riley|1000
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Arbok|Arbok, L82|100/100
+|switch|p2a: Vaporeon|Vaporeon, L74|345/345
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by dqn544)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|switch|p1a: Seaking|Seaking, L79|100/100
+|switch|p2a: Cloyster|Cloyster, L72|220/220
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Seaking|Surf|p2a: Cloyster
+|-resisted|p2a: Cloyster
+|-damage|p2a: Cloyster|172/220
+|move|p2a: Cloyster|Surf|p1a: Seaking
+|-resisted|p1a: Seaking
+|-damage|p1a: Seaking|86/100
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Seaking|Surf|p2a: Cloyster
+|-resisted|p2a: Cloyster
+|-damage|p2a: Cloyster|125/220
+|move|p2a: Cloyster|Blizzard|p1a: Seaking
+|-resisted|p1a: Seaking
+|-damage|p1a: Seaking|71/100
+|upkeep
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Seaking|Surf|p2a: Cloyster
+|-resisted|p2a: Cloyster
+|-damage|p2a: Cloyster|75/220
+|move|p2a: Cloyster|Surf|p1a: Seaking
+|-resisted|p1a: Seaking
+|-damage|p1a: Seaking|58/100
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Seaking|Surf|p2a: Cloyster
+|-crit|p2a: Cloyster
+|-resisted|p2a: Cloyster
+|-damage|p2a: Cloyster|0 fnt
+|faint|p2a: Cloyster
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Vaporeon|Vaporeon, L74|345/345
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Seaking|Double-Edge|p2a: Vaporeon
+|-damage|p2a: Vaporeon|266/345
+|-damage|p1a: Seaking|51/100|[from] Recoil|[of] p2a: Vaporeon
+|move|p2a: Vaporeon|Rest|p2a: Vaporeon
+|-status|p2a: Vaporeon|slp|[from] move: Rest
+|-heal|p2a: Vaporeon|345/345 slp|[silent]
+|upkeep
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Clefairy|Clefairy, L88|100/100
+|switch|p2a: Venusaur|Venusaur, L73|267/267
+|upkeep
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Jolteon|Jolteon, L70|236/236
+|switch|p1a: Seaking|Seaking, L79|51/100
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Vaporeon|Vaporeon, L74|345/345 slp
+|switch|p1a: Sandslash|Sandslash, L77|100/100
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Venusaur|Venusaur, L73|267/267
+|move|p1a: Sandslash|Earthquake|p2a: Venusaur
+|-damage|p2a: Venusaur|157/267
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Seaking|Seaking, L79|51/100
+|move|p2a: Venusaur|Razor Leaf|p1a: Seaking
+|-crit|p1a: Seaking
+|-supereffective|p1a: Seaking
+|-damage|p1a: Seaking|0 fnt
+|faint|p1a: Seaking
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Dodrio|Dodrio, L72|100/100
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Jolteon|Jolteon, L70|236/236
+|move|p1a: Dodrio|Body Slam|p2a: Jolteon
+|-damage|p2a: Jolteon|127/236
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Jolteon|Thunder Wave|p1a: Dodrio
+|-status|p1a: Dodrio|par
+|move|p1a: Dodrio|Body Slam|p2a: Jolteon
+|-damage|p2a: Jolteon|17/236
+|upkeep
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Sandslash|Sandslash, L77|100/100
+|move|p2a: Jolteon|Thunder Wave|p1a: Sandslash
+|-immune|p1a: Sandslash
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Venusaur|Venusaur, L73|157/267
+|move|p1a: Sandslash|Body Slam|p2a: Venusaur
+|-damage|p2a: Venusaur|100/267
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Primeape|Primeape, L78|261/261
+|switch|p1a: Dodrio|Dodrio, L72|100/100 par
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Jolteon|Jolteon, L70|17/236
+|move|p1a: Dodrio|Agility|p1a: Dodrio
+|-boost|p1a: Dodrio|spe|2
+|upkeep
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Dodrio|Body Slam|p2a: Jolteon
+|-damage|p2a: Jolteon|0 fnt
+|faint|p2a: Jolteon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Primeape|Primeape, L78|261/261
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Dodrio|Drill Peck|p2a: Primeape
+|-crit|p2a: Primeape
+|-supereffective|p2a: Primeape
+|-damage|p2a: Primeape|0 fnt
+|faint|p2a: Primeape
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Venusaur|Venusaur, L73|100/267
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Dodrio|Drill Peck|p2a: Venusaur
+|-supereffective|p2a: Venusaur
+|-damage|p2a: Venusaur|0 fnt
+|faint|p2a: Venusaur
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Vaporeon|Vaporeon, L74|345/345 slp
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Dodrio|Body Slam|p2a: Vaporeon
+|-damage|p2a: Vaporeon|236/345 slp
+|cant|p2a: Vaporeon|slp
+|upkeep
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Dodrio|Body Slam|p2a: Vaporeon
+|-crit|p2a: Vaporeon
+|-damage|p2a: Vaporeon|48/345 slp
+|-curestatus|p2a: Vaporeon|slp|[msg]
+|upkeep
+|turn|23
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Dodrio|Body Slam|p2a: Vaporeon
+|-damage|p2a: Vaporeon|0 fnt
+|faint|p2a: Vaporeon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Flareon|Flareon, L77|258/258
+|turn|24
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Flareon|Quick Attack|p1a: Dodrio
+|-damage|p1a: Dodrio|83/100 par
+|cant|p1a: Dodrio|par
+|upkeep
+|turn|25
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Dodrio|Body Slam|p2a: Flareon
+|-damage|p2a: Flareon|153/258
+|move|p2a: Flareon|Fire Blast|p1a: Dodrio
+|-damage|p1a: Dodrio|15/100 par
+|upkeep
+|turn|26
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Vulpix|Vulpix, L92|100/100
+|move|p2a: Flareon|Body Slam|p1a: Vulpix
+|-damage|p1a: Vulpix|65/100
+|upkeep
+|turn|27
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Vulpix|Confuse Ray|p2a: Flareon
+|-start|p2a: Flareon|confusion
+|-activate|p2a: Flareon|confusion
+|-damage|p2a: Flareon|110/258|[from] confusion
+|upkeep
+|turn|28
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Vulpix|Body Slam|p2a: Flareon
+|-damage|p2a: Flareon|54/258
+|-activate|p2a: Flareon|confusion
+|move|p2a: Flareon|Hyper Beam|p1a: Vulpix
+|-damage|p1a: Vulpix|5/100
+|-mustrecharge|p2a: Flareon
+|upkeep
+|turn|29
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Vulpix|Body Slam|p2a: Flareon
+|-damage|p2a: Flareon|0 fnt
+|faint|p2a: Flareon
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

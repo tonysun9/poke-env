@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-2007110951</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-2007110951<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_md2_battler</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">SchmittBit</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-2007110951|init|battle
+|title|cm_md2_battler vs. SchmittBit
+|j|☆cm_md2_battler
+|j|☆SchmittBit
+|gametype|singles
+|player|p1|cm_md2_battler|riley|1049
+|player|p2|SchmittBit|blue|1043
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Venomoth|Venomoth, L73|253/253
+|switch|p2a: Flareon|Flareon, L77|100/100
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_md2_battler)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|move|p1a: Venomoth|Double-Edge|p2a: Flareon
+|-damage|p2a: Flareon|77/100
+|-damage|p1a: Venomoth|238/253|[from] Recoil|[of] p2a: Flareon
+|move|p2a: Flareon|Fire Blast|p1a: Venomoth
+|-supereffective|p1a: Venomoth
+|-damage|p1a: Venomoth|0 fnt
+|faint|p1a: Venomoth
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Raticate|Raticate, L76|240/240
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Raticate|Hyper Beam|p2a: Flareon|[miss]
+|-miss|p1a: Raticate
+|move|p2a: Flareon|Body Slam|p1a: Raticate
+|-damage|p1a: Raticate|150/240
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Kabutops|Kabutops, L77|100/100
+|move|p1a: Raticate|Hyper Beam|p2a: Kabutops
+|-resisted|p2a: Kabutops
+|-damage|p2a: Kabutops|80/100
+|-mustrecharge|p1a: Raticate
+|upkeep
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p1a: Raticate|recharge
+|move|p2a: Kabutops|Swords Dance|p2a: Kabutops
+|-boost|p2a: Kabutops|atk|2
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Raticate|Hyper Beam|p2a: Kabutops
+|-resisted|p2a: Kabutops
+|-damage|p2a: Kabutops|60/100
+|-mustrecharge|p1a: Raticate
+|move|p2a: Kabutops|Slash|p1a: Raticate
+|-crit|p1a: Raticate
+|-damage|p1a: Raticate|17/240
+|upkeep
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p1a: Raticate|recharge
+|move|p2a: Kabutops|Slash|p1a: Raticate
+|-crit|p1a: Raticate
+|-damage|p1a: Raticate|0 fnt
+|faint|p1a: Raticate
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Flareon|Flareon, L77|258/258
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kabutops|Surf|p1a: Flareon
+|-supereffective|p1a: Flareon
+|-damage|p1a: Flareon|136/258
+|move|p1a: Flareon|Hyper Beam|p2a: Kabutops
+|-crit|p2a: Kabutops
+|-resisted|p2a: Kabutops
+|-damage|p2a: Kabutops|19/100
+|-mustrecharge|p1a: Flareon
+|upkeep
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kabutops|Slash|p1a: Flareon
+|-crit|p1a: Flareon
+|-damage|p1a: Flareon|9/258
+|cant|p1a: Flareon|recharge
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Flareon|Flareon, L77|77/100
+|move|p1a: Flareon|Hyper Beam|p2a: Flareon
+|-damage|p2a: Flareon|16/100
+|-mustrecharge|p1a: Flareon
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Flareon|Quick Attack|p1a: Flareon
+|-damage|p1a: Flareon|0 fnt
+|faint|p1a: Flareon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Rattata|Rattata, L91|240/240
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Rattata|Body Slam|p2a: Flareon
+|-damage|p2a: Flareon|0 fnt
+|faint|p2a: Flareon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Rattata|Rattata, L91|100/100
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Rattata|Super Fang|p1a: Rattata
+|-damage|p1a: Rattata|120/240
+|move|p1a: Rattata|Body Slam|p2a: Rattata
+|-damage|p2a: Rattata|52/100
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Rattata|Body Slam|p1a: Rattata
+|-damage|p1a: Rattata|0 fnt
+|faint|p1a: Rattata
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Nidorina|Nidorina, L87|299/299
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Rattata|Body Slam|p1a: Nidorina
+|-crit|p1a: Nidorina
+|-damage|p1a: Nidorina|138/299
+|-status|p1a: Nidorina|par
+|move|p1a: Nidorina|Blizzard|p2a: Rattata
+|-damage|p2a: Rattata|10/100
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Rattata|Body Slam|p1a: Nidorina
+|-damage|p1a: Nidorina|54/299 par
+|move|p1a: Nidorina|Blizzard|p2a: Rattata
+|-damage|p2a: Rattata|0 fnt
+|faint|p2a: Rattata
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Kabutops|Kabutops, L77|19/100
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kabutops|Surf|p1a: Nidorina
+|-damage|p1a: Nidorina|0 fnt
+|faint|p1a: Nidorina
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Squirtle|Squirtle, L91|265/265
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kabutops|Slash|p1a: Squirtle
+|-crit|p1a: Squirtle
+|-damage|p1a: Squirtle|168/265
+|move|p1a: Squirtle|Hydro Pump|p2a: Kabutops|[miss]
+|-miss|p1a: Squirtle
+|upkeep
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kabutops|Hyper Beam|p1a: Squirtle|[miss]
+|-miss|p2a: Kabutops
+|move|p1a: Squirtle|Hydro Pump|p2a: Kabutops|[miss]
+|-miss|p1a: Squirtle
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Kabutops|Slash|p1a: Squirtle
+|-crit|p1a: Squirtle
+|-damage|p1a: Squirtle|62/265
+|move|p1a: Squirtle|Hydro Pump|p2a: Kabutops
+|-damage|p2a: Kabutops|0 fnt
+|faint|p2a: Kabutops
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Spearow|Spearow, L92|100/100
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Spearow|Double-Edge|p1a: Squirtle
+|-crit|p1a: Squirtle
+|-damage|p1a: Squirtle|0 fnt
+|-damage|p2a: Spearow|95/100|[from] Recoil|[of] p1a: Squirtle
+|faint|p1a: Squirtle
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

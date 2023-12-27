@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-2007769408</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-2007769408<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">dqn544</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">grthgdfbd</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-2007769408|init|battle
+|title|grthgdfbd vs. dqn544
+|j|☆grthgdfbd
+|j|☆dqn544
+|gametype|singles
+|player|p1|grthgdfbd|265|1153
+|player|p2|dqn544|riley|1063
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Shellder|Shellder, L91|100/100
+|switch|p2a: Charmeleon|Charmeleon, L83|266/266
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by dqn544)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|move|p2a: Charmeleon|Fire Blast|p1a: Shellder
+|-resisted|p1a: Shellder
+|-damage|p1a: Shellder|73/100
+|move|p1a: Shellder|Surf|p2a: Charmeleon
+|-supereffective|p2a: Charmeleon
+|-damage|p2a: Charmeleon|68/266
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Charmeleon|Fire Blast|p1a: Shellder
+|-crit|p1a: Shellder
+|-resisted|p1a: Shellder
+|-damage|p1a: Shellder|22/100
+|move|p1a: Shellder|Surf|p2a: Charmeleon
+|-supereffective|p2a: Charmeleon
+|-damage|p2a: Charmeleon|0 fnt
+|faint|p2a: Charmeleon
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Wartortle|Wartortle, L83|268/268
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Wartortle|Surf|p1a: Shellder
+|-resisted|p1a: Shellder
+|-damage|p1a: Shellder|0 fnt
+|faint|p1a: Shellder
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Mr. Mime|Mr. Mime, L75|100/100
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Mr. Mime|Thunderbolt|p2a: Wartortle
+|-supereffective|p2a: Wartortle
+|-damage|p2a: Wartortle|129/268
+|move|p2a: Wartortle|Blizzard|p1a: Mr. Mime
+|-crit|p1a: Mr. Mime
+|-damage|p1a: Mr. Mime|39/100
+|-status|p1a: Mr. Mime|frz
+|upkeep
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p1a: Mr. Mime|frz
+|move|p2a: Wartortle|Surf|p1a: Mr. Mime
+|-damage|p1a: Mr. Mime|3/100 frz
+|upkeep
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p1a: Mr. Mime|frz
+|move|p2a: Wartortle|Surf|p1a: Mr. Mime
+|-damage|p1a: Mr. Mime|0 fnt
+|faint|p1a: Mr. Mime
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Pidgey|Pidgey, L97|100/100
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Pidgey|Double-Edge|p2a: Wartortle
+|-damage|p2a: Wartortle|31/268
+|-damage|p1a: Pidgey|92/100|[from] Recoil|[of] p2a: Wartortle
+|move|p2a: Wartortle|Blizzard|p1a: Pidgey
+|-crit|p1a: Pidgey
+|-supereffective|p1a: Pidgey
+|-damage|p1a: Pidgey|0 fnt
+|faint|p1a: Pidgey
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Drowzee|Drowzee, L82|100/100
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Wartortle|Body Slam|p1a: Drowzee
+|-damage|p1a: Drowzee|76/100
+|move|p1a: Drowzee|Psychic|p2a: Wartortle|[miss]
+|-miss|p1a: Drowzee
+|-hint|In Gen 1, moves with 100% accuracy can still miss 1/256 of the time.
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Wartortle|Surf|p1a: Drowzee
+|-damage|p1a: Drowzee|46/100
+|move|p1a: Drowzee|Psychic|p2a: Wartortle
+|-damage|p2a: Wartortle|0 fnt
+|faint|p2a: Wartortle
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Golbat|Golbat, L80|284/284
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Golbat|Hyper Beam|p1a: Drowzee
+|-damage|p1a: Drowzee|0 fnt
+|faint|p1a: Drowzee
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Rhyhorn|Rhyhorn, L84|100/100
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Golbat|Mega Drain|p1a: Rhyhorn
+|-supereffective|p1a: Rhyhorn
+|-damage|p1a: Rhyhorn|49/100
+|move|p1a: Rhyhorn|Rock Slide|p2a: Golbat
+|-supereffective|p2a: Golbat
+|-damage|p2a: Golbat|103/284
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Venonat|Venonat, L88|100/100
+|move|p2a: Golbat|Mega Drain|p1a: Venonat
+|-resisted|p1a: Venonat
+|-damage|p1a: Venonat|98/100
+|-heal|p2a: Golbat|107/284|[from] drain|[of] p1a: Venonat
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Golbat|Confuse Ray|p1a: Venonat
+|-start|p1a: Venonat|confusion
+|-activate|p1a: Venonat|confusion
+|-damage|p1a: Venonat|91/100|[from] confusion
+|upkeep
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Golbat|Confuse Ray|p1a: Venonat
+|-end|p1a: Venonat|confusion
+|move|p1a: Venonat|Psychic|p2a: Golbat
+|-supereffective|p2a: Golbat
+|-damage|p2a: Golbat|7/284
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Golbat|Confuse Ray|p1a: Venonat
+|-start|p1a: Venonat|confusion
+|-activate|p1a: Venonat|confusion
+|-damage|p1a: Venonat|84/100|[from] confusion
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Golbat|Confuse Ray|p1a: Venonat
+|-end|p1a: Venonat|confusion
+|move|p1a: Venonat|Psychic|p2a: Golbat
+|-supereffective|p2a: Golbat
+|-damage|p2a: Golbat|0 fnt
+|faint|p2a: Golbat
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Magneton|Magneton, L77|235/235
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|c|☆grthgdfbd|dude how u so lucky
+|switch|p1a: Rhyhorn|Rhyhorn, L84|49/100
+|move|p2a: Magneton|Thunderbolt|p1a: Rhyhorn
+|-immune|p1a: Rhyhorn
+|upkeep
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Magneton|Rest|p2a: Magneton
+|-fail|p2a: Magneton
+|move|p1a: Rhyhorn|Earthquake|p2a: Magneton
+|-supereffective|p2a: Magneton
+|-damage|p2a: Magneton|36/235
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Magneton|Rest|p2a: Magneton
+|-status|p2a: Magneton|slp|[from] move: Rest
+|-heal|p2a: Magneton|235/235 slp|[silent]
+|move|p1a: Rhyhorn|Substitute|p1a: Rhyhorn
+|-start|p1a: Rhyhorn|Substitute
+|-damage|p1a: Rhyhorn|24/100
+|upkeep
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Magneton|slp
+|move|p1a: Rhyhorn|Earthquake|p2a: Magneton
+|-supereffective|p2a: Magneton
+|-damage|p2a: Magneton|20/235 slp
+|upkeep
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Chansey|Chansey, L67|474/474
+|move|p1a: Rhyhorn|Earthquake|p2a: Chansey
+|-damage|p2a: Chansey|195/474
+|upkeep
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Chansey|Soft-Boiled|p2a: Chansey
+|-heal|p2a: Chansey|432/474
+|move|p1a: Rhyhorn|Earthquake|p2a: Chansey
+|-damage|p2a: Chansey|119/474
+|upkeep
+|turn|23
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Chansey|Ice Beam|p1a: Rhyhorn|[miss]
+|-miss|p2a: Chansey
+|-hint|In Gen 1, moves with 100% accuracy can still miss 1/256 of the time.
+|move|p1a: Rhyhorn|Earthquake|p2a: Chansey
+|-damage|p2a: Chansey|0 fnt
+|faint|p2a: Chansey
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Magneton|Magneton, L77|20/235 slp
+|turn|24
+|inactive|Time left: 150 sec this turn | 150 sec total
+|-curestatus|p2a: Magneton|slp|[msg]
+|move|p1a: Rhyhorn|Earthquake|p2a: Magneton
+|-supereffective|p2a: Magneton
+|-damage|p2a: Magneton|0 fnt
+|faint|p2a: Magneton
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Hitmonlee|Hitmonlee, L82|250/250
+|turn|25
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|High Jump Kick|p1a: Rhyhorn
+|-supereffective|p1a: Rhyhorn
+|-end|p1a: Rhyhorn|Substitute
+|move|p1a: Rhyhorn|Earthquake|p2a: Hitmonlee
+|-damage|p2a: Hitmonlee|109/250
+|upkeep
+|turn|26
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|High Jump Kick|p1a: Rhyhorn
+|-supereffective|p1a: Rhyhorn
+|-damage|p1a: Rhyhorn|0 fnt
+|faint|p1a: Rhyhorn
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Venonat|Venonat, L88|84/100
+|turn|27
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Hitmonlee|High Jump Kick|p1a: Venonat
+|-resisted|p1a: Venonat
+|-damage|p1a: Venonat|72/100
+|move|p1a: Venonat|Psychic|p2a: Hitmonlee
+|-supereffective|p2a: Hitmonlee
+|-damage|p2a: Hitmonlee|0 fnt
+|faint|p2a: Hitmonlee
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>

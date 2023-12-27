@@ -184,6 +184,7 @@ class EnvPlayer(GymnasiumEnv[ObsType, ActType], ABC):
             current_value += victory_value
         elif battle.lost:
             current_value -= victory_value
+            # current_value = 0
 
         to_return = current_value - self._reward_buffer[battle]
         self._reward_buffer[battle] = current_value
@@ -237,7 +238,7 @@ class EnvPlayer(GymnasiumEnv[ObsType, ActType], ABC):
 
 
 class Gen1EnvSinglePlayer(EnvPlayer[ObsType, ActType], ABC):
-    _ACTION_SPACE = list(range(4 + 6))
+    _ACTION_SPACE = list(range(4 + 5))
     _DEFAULT_BATTLE_FORMAT = "gen1randombattle"
 
     def action_to_move(self, action: int, battle: AbstractBattle) -> BattleOrder:
@@ -245,8 +246,6 @@ class Gen1EnvSinglePlayer(EnvPlayer[ObsType, ActType], ABC):
 
         The conversion is done as follows:
 
-        action = -1:
-            The battle will be forfeited.
         0 <= action < 4:
             The actionth available move in battle.available_moves is executed.
         4 <= action < 10
@@ -261,9 +260,9 @@ class Gen1EnvSinglePlayer(EnvPlayer[ObsType, ActType], ABC):
         :return: the order to send to the server.
         :rtype: str
         """
-        if action == -1:
-            return ForfeitBattleOrder()
-        elif (
+        # if action == -1:
+        #     return ForfeitBattleOrder()
+        if (
             action < 4
             and action < len(battle.available_moves)
             and not battle.force_switch

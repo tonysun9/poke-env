@@ -44,7 +44,9 @@ BATTLE_FORMAT = "gen1randombattle"
 class SimpleRLPlayer(Gen1EnvSinglePlayer):
     def calc_reward(self, last_battle, current_battle) -> float:
         return self.reward_computing_helper(
-            current_battle, fainted_value=2.0, hp_value=1.0, victory_value=30.0
+            # current_battle, fainted_value=2.0, hp_value=1.0, victory_value=30.0
+            current_battle,
+            number_of_pokemons=0,
         )
 
     # def embed_battle(self, battle: AbstractBattle) -> ObservationType:
@@ -114,7 +116,7 @@ async def main():
     model = DQN("MlpPolicy", train_env, verbose=1)
     model.learn(total_timesteps=int(1e5))
 
-    model.save("models/pokemon_rl_dqn_2")
+    model.save("models/dqn_1_1")
 
     opponent = RandomPlayer(battle_format=BATTLE_FORMAT)
     eval_env = SimpleRLPlayer(

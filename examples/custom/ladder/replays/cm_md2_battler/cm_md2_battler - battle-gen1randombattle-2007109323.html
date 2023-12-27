@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- version 1 -->
+<title>battle-gen1randombattle-2007109323</title>
+<style>
+    html,
+    body {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 12px 0;
+    }
+
+    .battle-log {
+        font-family: Verdana, sans-serif;
+        font-size: 10pt;
+    }
+
+    .battle-log-inline {
+        border: 1px solid #AAAAAA;
+        background: #EEF2F5;
+        color: black;
+        max-width: 640px;
+        margin: 0 auto 80px;
+        padding-bottom: 5px;
+    }
+
+    .battle-log .inner {
+        padding: 4px 8px 0px 8px;
+    }
+
+    .battle-log .inner-preempt {
+        padding: 0 8px 4px 8px;
+    }
+
+    .battle-log .inner-after {
+        margin-top: 0.5em;
+    }
+
+    .battle-log h2 {
+        margin: 0.5em -8px;
+        padding: 4px 8px;
+        border: 1px solid #AAAAAA;
+        background: #E0E7EA;
+        border-left: 0;
+        border-right: 0;
+        font-family: Verdana, sans-serif;
+        font-size: 13pt;
+    }
+
+    .backprop {
+        top: 0;
+    }
+
+    .battle-log .chat {
+        vertical-align: middle;
+        padding: 3px 0 3px 0;
+        font-size: 8pt;
+    }
+
+    .battle-log .chat strong {
+        color: #40576A;
+    }
+
+    .battle-log .chat em {
+        padding: 1px 4px 1px 3px;
+        color: #000000;
+        font-style: normal;
+    }
+
+    .chat.mine {
+        background: rgba(0, 0, 0, 0.05);
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spoiler {
+        color: #BBBBBB;
+        background: #BBBBBB;
+        padding: 0px 3px;
+    }
+
+    .spoiler:hover,
+    .spoiler:active,
+    .spoiler-shown {
+        color: #000000;
+        background: #E2E2E2;
+        padding: 0px 3px;
+    }
+
+    .spoiler a {
+        color: #BBBBBB;
+    }
+
+    .spoiler:hover a,
+    .spoiler:active a,
+    .spoiler-shown a {
+        color: #2288CC;
+    }
+
+    .chat code,
+    .chat .spoiler:hover code,
+    .chat .spoiler:active code,
+    .chat .spoiler-shown code {
+        border: 1px solid #C0C0C0;
+        background: #EEEEEE;
+        color: black;
+        padding: 0 2px;
+    }
+
+    .chat .spoiler code {
+        border: 1px solid #CCCCCC;
+        background: #CCCCCC;
+        color: #CCCCCC;
+    }
+
+    .battle-log .rated {
+        padding: 3px 4px;
+    }
+
+    .battle-log .rated strong {
+        color: white;
+        background: #89A;
+        padding: 1px 4px;
+        border-radius: 4px;
+    }
+
+    .spacer {
+        margin-top: 0.5em;
+    }
+
+    .message-announce {
+        background: #6688AA;
+        color: white;
+        padding: 1px 4px 2px;
+    }
+
+    .message-announce a,
+    .broadcast-green a,
+    .broadcast-blue a,
+    .broadcast-red a {
+        color: #DDEEFF;
+    }
+
+    .broadcast-green {
+        background-color: #559955;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .broadcast-blue {
+        background-color: #6688AA;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .infobox {
+        border: 1px solid #6688AA;
+        padding: 2px 4px;
+    }
+
+    .infobox-limited {
+        max-height: 200px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .broadcast-red {
+        background-color: #AA5544;
+        color: white;
+        padding: 2px 4px;
+    }
+
+    .message-learn-canlearn {
+        font-weight: bold;
+        color: #228822;
+        text-decoration: underline;
+    }
+
+    .message-learn-cannotlearn {
+        font-weight: bold;
+        color: #CC2222;
+        text-decoration: underline;
+    }
+
+    .message-effect-weak {
+        font-weight: bold;
+        color: #CC2222;
+    }
+
+    .message-effect-resist {
+        font-weight: bold;
+        color: #6688AA;
+    }
+
+    .message-effect-immune {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .message-learn-list {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .message-throttle-notice,
+    .message-error {
+        color: #992222;
+    }
+
+    .message-overflow,
+    .chat small.message-overflow {
+        font-size: 0pt;
+    }
+
+    .message-overflow::before {
+        font-size: 9pt;
+        content: '...';
+    }
+
+    .subtle {
+        color: #3A4A66;
+    }
+</style>
+<div class="wrapper replay-wrapper" style="max-width:1180px;margin:0 auto">
+    <input type="hidden" name="replayid" value="unregisteredserver-gen8randombattle-320064" />
+    <div class="battle"></div>
+    <div class="battle-log"></div>
+    <div class="replay-controls"></div>
+    <div class="replay-controls-2"></div>
+    <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen1randombattle-2007109323<br /><a
+            href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">cm_md2_battler</a>
+        vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
+            target="_blank">SeriousLobster5420</a></h1>
+    <script type="text/plain" class="battle-log-data">
+    >battle-gen1randombattle-2007109323|init|battle
+|title|SeriousLobster5420 vs. cm_md2_battler
+|j|☆SeriousLobster5420
+|j|☆cm_md2_battler
+|gametype|singles
+|player|p1|SeriousLobster5420|psychicf|1243
+|player|p2|cm_md2_battler|riley|1059
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|1
+|tier|[Gen 1] Random Battle
+|rated|
+|rule|Desync Clause Mod: Desyncs changed to move failure.
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Freeze Clause Mod: Limit one foe frozen
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|start
+|switch|p1a: Lickitung|Lickitung, L81|100/100
+|switch|p2a: Fearow|Fearow, L76|255/255
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by cm_md2_battler)
+|inactive|Time left: 150 sec this turn | 150 sec total | 60 sec grace
+|switch|p1a: Cloyster|Cloyster, L72|100/100
+|move|p2a: Fearow|Hyper Beam|p1a: Cloyster|[miss]
+|-miss|p2a: Fearow
+|upkeep
+|turn|2
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Fearow|Hyper Beam|p1a: Cloyster
+|-crit|p1a: Cloyster
+|-damage|p1a: Cloyster|26/100
+|-mustrecharge|p2a: Fearow
+|move|p1a: Cloyster|Blizzard|p2a: Fearow
+|-supereffective|p2a: Fearow
+|-damage|p2a: Fearow|22/255
+|upkeep
+|turn|3
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Fearow|recharge
+|move|p1a: Cloyster|Surf|p2a: Fearow
+|-damage|p2a: Fearow|0 fnt
+|faint|p2a: Fearow
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Dewgong|Dewgong, L74|286/286
+|turn|4
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Dewgong|Hyper Beam|p1a: Cloyster
+|-damage|p1a: Cloyster|4/100
+|-mustrecharge|p2a: Dewgong
+|move|p1a: Cloyster|Explosion|p2a: Dewgong
+|-damage|p2a: Dewgong|66/286
+|faint|p1a: Cloyster
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Weepinbell|Weepinbell, L80|100/100
+|turn|5
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Dewgong|recharge
+|move|p1a: Weepinbell|Razor Leaf|p2a: Dewgong
+|-crit|p2a: Dewgong
+|-supereffective|p2a: Dewgong
+|-damage|p2a: Dewgong|0 fnt
+|faint|p2a: Dewgong
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Rhyhorn|Rhyhorn, L84|306/306
+|turn|6
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Weepinbell|Razor Leaf|p2a: Rhyhorn
+|-crit|p2a: Rhyhorn
+|-supereffective|p2a: Rhyhorn
+|-damage|p2a: Rhyhorn|0 fnt
+|faint|p2a: Rhyhorn
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Abra|Abra, L81|206/206
+|turn|7
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Lickitung|Lickitung, L81|100/100
+|move|p2a: Abra|Psychic|p1a: Lickitung
+|-damage|p1a: Lickitung|59/100
+|-unboost|p1a: Lickitung|spa|1
+|-unboost|p1a: Lickitung|spd|1
+|upkeep
+|turn|8
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Kadabra|Kadabra, L73|100/100
+|move|p2a: Abra|Psychic|p1a: Kadabra
+|-resisted|p1a: Kadabra
+|-damage|p1a: Kadabra|78/100
+|upkeep
+|turn|9
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Thunder Wave|p2a: Abra
+|-status|p2a: Abra|par
+|move|p2a: Abra|Seismic Toss|p1a: Kadabra
+|-damage|p1a: Kadabra|40/100
+|upkeep
+|turn|10
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Recover|p1a: Kadabra
+|-heal|p1a: Kadabra|89/100
+|move|p2a: Abra|Seismic Toss|p1a: Kadabra
+|-damage|p1a: Kadabra|51/100
+|upkeep
+|turn|11
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Recover|p1a: Kadabra
+|-heal|p1a: Kadabra|100/100
+|move|p2a: Abra|Seismic Toss|p1a: Kadabra
+|-damage|p1a: Kadabra|62/100
+|upkeep
+|turn|12
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Psychic|p2a: Abra
+|-resisted|p2a: Abra
+|-damage|p2a: Abra|168/206 par
+|move|p2a: Abra|Seismic Toss|p1a: Kadabra
+|-damage|p1a: Kadabra|23/100
+|upkeep
+|turn|13
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Recover|p1a: Kadabra
+|-heal|p1a: Kadabra|73/100
+|move|p2a: Abra|Seismic Toss|p1a: Kadabra
+|-damage|p1a: Kadabra|34/100
+|upkeep
+|turn|14
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Recover|p1a: Kadabra
+|-heal|p1a: Kadabra|84/100
+|cant|p2a: Abra|par
+|upkeep
+|turn|15
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Psychic|p2a: Abra
+|-resisted|p2a: Abra
+|-damage|p2a: Abra|127/206 par
+|move|p2a: Abra|Seismic Toss|p1a: Kadabra
+|-damage|p1a: Kadabra|45/100
+|upkeep
+|turn|16
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Psychic|p2a: Abra
+|-resisted|p2a: Abra
+|-damage|p2a: Abra|89/206 par
+|cant|p2a: Abra|par
+|upkeep
+|turn|17
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Recover|p1a: Kadabra
+|-heal|p1a: Kadabra|95/100
+|move|p2a: Abra|Seismic Toss|p1a: Kadabra
+|-damage|p1a: Kadabra|56/100
+|upkeep
+|turn|18
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Psychic|p2a: Abra
+|-crit|p2a: Abra
+|-resisted|p2a: Abra
+|-damage|p2a: Abra|19/206 par
+|-unboost|p2a: Abra|spa|1
+|-unboost|p2a: Abra|spd|1
+|cant|p2a: Abra|par
+|upkeep
+|turn|19
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Psychic|p2a: Abra
+|-resisted|p2a: Abra
+|-damage|p2a: Abra|0 fnt
+|faint|p2a: Abra
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p2a: Grimer|Grimer, L93|338/338
+|turn|20
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Kadabra|Psychic|p2a: Grimer
+|-supereffective|p2a: Grimer
+|-damage|p2a: Grimer|94/338
+|-unboost|p2a: Grimer|spa|1
+|-unboost|p2a: Grimer|spd|1
+|move|p2a: Grimer|Explosion|p1a: Kadabra
+|-damage|p1a: Kadabra|0 fnt
+|faint|p1a: Kadabra
+|faint|p2a: Grimer
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Lickitung|Lickitung, L81|59/100
+|switch|p2a: Wigglytuff|Wigglytuff, L77|374/374
+|turn|21
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Wigglytuff|Hyper Beam|p1a: Lickitung
+|-damage|p1a: Lickitung|18/100
+|-mustrecharge|p2a: Wigglytuff
+|move|p1a: Lickitung|Body Slam|p2a: Wigglytuff
+|-damage|p2a: Wigglytuff|286/374
+|upkeep
+|turn|22
+|inactive|Time left: 150 sec this turn | 150 sec total
+|cant|p2a: Wigglytuff|recharge
+|move|p1a: Lickitung|Hyper Beam|p2a: Wigglytuff
+|-damage|p2a: Wigglytuff|131/374
+|-mustrecharge|p1a: Lickitung
+|upkeep
+|turn|23
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Wigglytuff|Hyper Beam|p1a: Lickitung|[miss]
+|-miss|p2a: Wigglytuff
+|cant|p1a: Lickitung|recharge
+|upkeep
+|turn|24
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p2a: Wigglytuff|Hyper Beam|p1a: Lickitung
+|-damage|p1a: Lickitung|0 fnt
+|faint|p1a: Lickitung
+|inactive|Time left: 150 sec this turn | 150 sec total
+|switch|p1a: Weepinbell|Weepinbell, L80|100/100
+|turn|25
+|inactive|Time left: 150 sec this turn | 150 sec total
+|move|p1a: Weepinbell|Double-Edge|p2a: Wigglytuff
+|-crit|p2a: Wigglytuff
+|-damage|p2a: Wigglytuff|0 fnt
+|-damage|p1a: Weepinbell|89/100|[from] Recoil|[of] p2a: Wigglytuff
+|faint|p2a: Wigglytuff
+    </script>
+</div>
+
+<div class="battle-log battle-log-inline" style="display:none"></div>
+
+<script>
+    let daily = Math.floor(Date.now() / 1000 / 60 / 60 / 24); document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version' + daily + '"></' + 'script>');
+</script>
+
+<p style="text-align:center"> Replay created by <a href="https://github.com/hsahovic/poke-env">poke-env</a>, with code from <a
+        href="https://github.com/smogon/pokemon-showdown"> pokemon-showdown</a>. If something goes wrong, don't hesitate
+    to open an <a href="https://github.com/hsahovic/poke-env/issues">issue!</a></p>
